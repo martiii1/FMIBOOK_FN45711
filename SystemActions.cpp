@@ -1,49 +1,52 @@
 #include "SystemActions.hpp"
 
-void SystemActions::isTheActionAllowed(UserData &actor, SystemActions::Action action, UserData &subject)
+void SystemActions::isTheActionAllowed(const UserData &actor, Actions action,const UserData &subject)
 {
 
-    if(action == SystemActions::Action::Nothing)
+    if(action == Actions::Nothing)
         throw std::exception("Invalid action, try again! \n");
 
-    if(!actionCheck(actor, action, subject))
+    //if(!actionCheck(actor, action, subject))
+
+    if(!SystemActions::actionCheck(actor, action, subject))
         throw std::exception("You do not have the permissions to do that! \n");
 
 }
 
-bool SystemActions::actionCheck(UserData &actor, SystemActions::Action action, UserData &subject)
+bool SystemActions::actionCheck(const UserData &actor, Actions action,const UserData &subject)
 {
     switch (action)
     {
-        case SystemActions::Action::Nothing:                                    // Invalid action
+        case Actions::Nothing:                                    // Invalid action
             return false;
 
-        case SystemActions::Action::Add_post:                                   // Adding post
+        case  Actions::Add_post:                                   // Adding post
             return actor.getUserTier() != UserTiers::Tier::Nothing;
 
-        case SystemActions::Action::Remove_post:                                // Removing post
+        case  Actions::Remove_post:                                // Removing post
             if(actor.getUserTier() >= UserTiers::Tier::Moderator)
                 return true;
             else
                 return (actor.getUserTier() == UserTiers::Tier::Basic_User &&
                        strcmp(actor.getUsername(), subject.getUsername()) == 0);
 
-        case  SystemActions::Action::Change_username:                            // Change username
+        case   Actions::Change_username:                            // Change username
             return true;
 
-        case  SystemActions::Action::Block_user:                                // Block user
+        case   Actions::Block_user:                                // Block user
             return actor.getUserTier() >= UserTiers::Tier::Moderator;
 
-        case  SystemActions::Action::Unblock_user:                              // Unblock user
+        case   Actions::Unblock_user:                              // Unblock user
             return actor.getUserTier() >= UserTiers::Tier::Moderator;
 
-        case SystemActions::Action::Add_user:                                   // Add user
+        case  Actions::Add_user:                                   // Add user
             return actor.getUserTier() >= UserTiers::Admin;
 
-        case SystemActions::Action::Remove_user:                                // Remove user
+        case  Actions::Remove_user:                                // Remove user
             return actor.getUserTier() >= UserTiers::Admin;
 
-        case SystemActions::Action::Change_tier:                                // Change user tier
+        case  Actions::Change_tier:                                // Change user tier
             return actor.getUserTier() >= UserTiers::Admin;
     }
+    return false;
 }

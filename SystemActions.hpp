@@ -8,7 +8,7 @@
 class SystemActions
 {
 public:
-    enum Action
+    enum Actions
     {
         Nothing,
         Add_post,
@@ -21,8 +21,9 @@ public:
         Change_tier
     };
 
-    static void isTheActionAllowed(UserData &actor, SystemActions::Action action, UserData &subject);
+    static Actions Action;
 
-private:
-    static bool actionCheck(UserData &actor, SystemActions::Action action, UserData &subject)
+    static void isTheActionAllowed(const UserData &actor, Actions action,const UserData &subject);
+
+    static bool actionCheck(const UserData &actor, Actions action,const UserData &subject);
 };
