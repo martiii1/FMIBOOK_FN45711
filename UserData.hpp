@@ -15,7 +15,7 @@ public:
     unsigned short int getUserAge() const;
 
     void setUserTier(UserData &actor, UserData &subject, UserTiers::Tier newTier);
-    void setUsername(UserData &actor, UserData &subject, const char* newUsername);
+    void setUsername(UserData &actor, UserData &subject, char* newUsername);
 
 
 private:

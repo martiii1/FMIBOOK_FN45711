@@ -24,14 +24,14 @@ unsigned short int UserData::getUserAge() const
 
 void UserData::setUserTier(UserData &actor, UserData &subject, UserTiers::Tier newTier)
 {
-    SystemActions::isTheActionAllowed(actor, SystemActions::Action::Change_tier, subject);
+    SystemActions::isTheActionAllowed(actor, SystemActions::Actions::Change_tier, subject);
 
     subject.fUserTier = newTier;
 }
 
-void UserData::setUsername(UserData &actor, UserData &subject, const char *newUsername)
+void UserData::setUsername(UserData &actor,UserData &subject, char *newUsername)
 {
-    SystemActions::isTheActionAllowed(actor, SystemActions::Action::Change_username, subject);
+    SystemActions::isTheActionAllowed(actor, SystemActions::Actions::Change_username, subject);
 
     delete[] fUsername;
     fUsername = new char[strlen(newUsername) + 1];
