@@ -1,8 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="FMIBOOK_FN45711" targetName="FMIBOOK_FN45711" />
+    </generated>
+  </component>
   <component name="CMakeSettings">
     <configurations>
       <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
     </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5f4f5121-6fba-48b9-848d-25df4d2cdca3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/SystemActions.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SystemActions.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserTiers.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserTiers.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1cAq4tnUtN0wWKo77QrHPLPsIiV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="FMIBOOK_FN45711" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="FMIBOOK_FN45711" TARGET_NAME="FMIBOOK_FN45711" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="FMIBOOK_FN45711" RUN_TARGET_NAME="FMIBOOK_FN45711">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5f4f5121-6fba-48b9-848d-25df4d2cdca3" name="Default Changelist" comment="" />
+      <created>1589981557824</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1589981557824</updated>
+      <workItem from="1589981561066" duration="1534000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="814" y="418" key="Github.ShareDialog" timestamp="1589981583052">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="814" y="418" key="Github.ShareDialog/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1589981583052" />
+    <state x="786" y="219" key="Github.UntrackedFilesDialog" timestamp="1589981593461">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="786" y="219" key="Github.UntrackedFilesDialog/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1589981593461" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1589981613152">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1589981613152" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1589982318854">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1589982318854" />
   </component>
 </project>
