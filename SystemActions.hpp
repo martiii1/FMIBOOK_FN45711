@@ -1,5 +1,8 @@
 #pragma once
+#include <iostream>
+#include <cstring>
 #include "UserTiers.hpp"
+#include "User.hpp"
 
 class SystemActions
 {
@@ -14,5 +17,5 @@ public:
         Remove_user
     };
 
-    bool isTheActionAllowed(Action inputAction, UserTiers::Tier userTier);
+    void isTheActionAllowed(User actor, SystemActions::Action action, User subject);
 };

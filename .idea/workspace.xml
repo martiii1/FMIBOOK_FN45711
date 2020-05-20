@@ -11,15 +11,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f4f5121-6fba-48b9-848d-25df4d2cdca3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SystemActions.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SystemActions.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/User.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/User.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserTiers.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserTiers.hpp" afterDir="false" />
+    <list default="true" id="5f4f5121-6fba-48b9-848d-25df4d2cdca3" name="Default Changelist" comment="Basic classes added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemActions.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SystemActions.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemActions.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/SystemActions.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/User.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/User.hpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +39,12 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RunManager">
     <configuration name="FMIBOOK_FN45711" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="FMIBOOK_FN45711" TARGET_NAME="FMIBOOK_FN45711" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="FMIBOOK_FN45711" RUN_TARGET_NAME="FMIBOOK_FN45711">
@@ -60,14 +63,30 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1589981557824</updated>
-      <workItem from="1589981561066" duration="1534000" />
+      <workItem from="1589981561066" duration="2448000" />
     </task>
+    <task id="LOCAL-00001" summary="Basic classes added">
+      <created>1589983112436</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1589983112436</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Basic classes added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic classes added" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="585" y="90" key="CommitChangelistDialog2" timestamp="1589983115787">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="585" y="90" key="CommitChangelistDialog2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1589983115787" />
     <state x="814" y="418" key="Github.ShareDialog" timestamp="1589981583052">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -76,10 +95,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="786" y="219" key="Github.UntrackedFilesDialog/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1589981593461" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1589981613152">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1589983117816">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1589981613152" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1589983117816" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1589982318854">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
