@@ -21,8 +21,8 @@ public:
         Change_tier
     };
 
-    void isTheActionAllowed(User &actor, SystemActions::Action action, User &subject);
+    static void isTheActionAllowed(User &actor, SystemActions::Action action, User &subject);
 
 private:
-    bool actionCheck(User &actor, SystemActions::Action action, User &subject)
+    static bool actionCheck(User &actor, SystemActions::Action action, User &subject)
 };
