@@ -13,8 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5f4f5121-6fba-48b9-848d-25df4d2cdca3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/User.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/User.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinkedUser.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/LinkedUser.hpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +61,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1589981557824</updated>
-      <workItem from="1589981561066" duration="9476000" />
+      <workItem from="1589981561066" duration="12431000" />
     </task>
     <task id="LOCAL-00001" summary="Basic classes added">
       <created>1589983112436</created>
@@ -92,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589989980266</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added copy constructor and overloaded=">
+      <created>1589991355286</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1589991355286</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -103,13 +109,18 @@
     <MESSAGE value="Added getters in User class" />
     <MESSAGE value="Added a system action checker function" />
     <MESSAGE value="Added default constructors, setter functions and a new class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added default constructors, setter functions and a new class" />
+    <MESSAGE value="Added copy constructor and overloaded=" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added copy constructor and overloaded=" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="585" y="90" key="CommitChangelistDialog2" timestamp="1589989979295">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589994897199">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="90" key="CommitChangelistDialog2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1589989979295" />
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1589994897199" />
+    <state x="585" y="90" key="CommitChangelistDialog2" timestamp="1589991354580">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="585" y="90" key="CommitChangelistDialog2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1589991354580" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1589990303286">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -122,10 +133,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="786" y="219" key="Github.UntrackedFilesDialog/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1589981593461" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1589986559636">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1589993643308">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1589986559636" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1589993643308" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1589982318854">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

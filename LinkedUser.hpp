@@ -9,5 +9,4 @@ public:
     User fLinkedUser;
     User* fPointerToNextUser;
 
-
 };
