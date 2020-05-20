@@ -1,4 +1,5 @@
 #pragma once
+
 #include <iostream>
 #include <cstring>
 #include "UserTiers.hpp"
@@ -7,15 +8,21 @@
 class SystemActions
 {
 public:
-    enum Action{
+    enum Action
+    {
         Nothing,
         Add_post,
         Remove_post,
+        Change_username,
         Block_user,
         Unblock_user,
         Add_user,
-        Remove_user
+        Remove_user,
+        Change_tier
     };
 
-    void isTheActionAllowed(User actor, SystemActions::Action action, User subject);
+    void isTheActionAllowed(User &actor, SystemActions::Action action, User &subject);
+
+private:
+    bool actionCheck(User &actor, SystemActions::Action action, User &subject)
 };
