@@ -1,12 +1,12 @@
 #pragma once
-#include "User.hpp"
+#include "UserData.hpp"
 
 class LinkedUser
 {
 public:
     LinkedUser();
 
-    User fLinkedUser;
-    User* fPointerToNextUser;
+    UserData fLinkedUser;
+    LinkedUser *fPointerToNextUser;
 
 };

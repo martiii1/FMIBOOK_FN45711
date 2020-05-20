@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cstring>
 #include "UserTiers.hpp"
-#include "User.hpp"
+#include "UserData.hpp"
 
 class SystemActions
 {
@@ -21,8 +21,8 @@ public:
         Change_tier
     };
 
-    static void isTheActionAllowed(User &actor, SystemActions::Action action, User &subject);
+    static void isTheActionAllowed(UserData &actor, SystemActions::Action action, UserData &subject);
 
 private:
-    static bool actionCheck(User &actor, SystemActions::Action action, User &subject)
+    static bool actionCheck(UserData &actor, SystemActions::Action action, UserData &subject)
 };

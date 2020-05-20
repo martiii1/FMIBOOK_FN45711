@@ -1,6 +1,6 @@
 #include "SystemActions.hpp"
 
-void SystemActions::isTheActionAllowed(User &actor, SystemActions::Action action, User &subject)
+void SystemActions::isTheActionAllowed(UserData &actor, SystemActions::Action action, UserData &subject)
 {
 
     if(action == SystemActions::Action::Nothing)
@@ -11,7 +11,7 @@ void SystemActions::isTheActionAllowed(User &actor, SystemActions::Action action
 
 }
 
-bool SystemActions::actionCheck(User &actor, SystemActions::Action action, User &subject)
+bool SystemActions::actionCheck(UserData &actor, SystemActions::Action action, UserData &subject)
 {
     switch (action)
     {

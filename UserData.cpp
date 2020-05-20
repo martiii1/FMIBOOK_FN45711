@@ -1,35 +1,35 @@
-#include "User.hpp"
+#include "UserData.hpp"
 
-User::User()
+UserData::UserData()
 {
     fUsername = nullptr;
     fAge = 0;
     fUserTier = UserTiers::Tier::Nothing;
 }
 
-UserTiers::Tier User::getUserTier() const
+UserTiers::Tier UserData::getUserTier() const
 {
     return fUserTier;
 }
 
-char *User::getUsername() const
+char *UserData::getUsername() const
 {
     return fUsername;
 }
 
-unsigned short int User::getUserAge() const
+unsigned short int UserData::getUserAge() const
 {
     return fAge;
 }
 
-void User::setUserTier(User &actor, User &subject, UserTiers::Tier newTier)
+void UserData::setUserTier(UserData &actor, UserData &subject, UserTiers::Tier newTier)
 {
     SystemActions::isTheActionAllowed(actor, SystemActions::Action::Change_tier, subject);
 
     subject.fUserTier = newTier;
 }
 
-void User::setUsername(User &actor, User &subject, const char *newUsername)
+void UserData::setUsername(UserData &actor, UserData &subject, const char *newUsername)
 {
     SystemActions::isTheActionAllowed(actor, SystemActions::Action::Change_username, subject);
 
@@ -38,17 +38,17 @@ void User::setUsername(User &actor, User &subject, const char *newUsername)
     strcpy(fUsername, newUsername);
 }
 
-User::~User()
+UserData::~UserData()
 {
     delUserMem();
 }
 
-void User::delUserMem()
+void UserData::delUserMem()
 {
     delete[] fUsername;
 }
 
-void User::copyUser(const User &other)
+void UserData::copyUser(const UserData &other)
 {
     char *tempName = new char[strlen(other.getUsername()) + 1];
 
@@ -58,7 +58,7 @@ void User::copyUser(const User &other)
     fUserTier = other.getUserTier();
 }
 
-User &User::operator=(const User &other)
+UserData &UserData::operator=(const UserData &other)
 {
    if(this != &other)
    {
@@ -69,7 +69,7 @@ User &User::operator=(const User &other)
        return *this;
 }
 
-User::User(const User &other)
+UserData::UserData(const UserData &other)
 {
     copyUser(other);
 }
