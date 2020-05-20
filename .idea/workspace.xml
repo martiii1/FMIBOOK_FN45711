@@ -11,14 +11,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f4f5121-6fba-48b9-848d-25df4d2cdca3" name="Default Changelist" comment="Added a system action checker function">
-      <change afterPath="$PROJECT_DIR$/LinkedUser.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LinkedUser.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MainNetworkEngine.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MainNetworkEngine.hpp" afterDir="false" />
+    <list default="true" id="5f4f5121-6fba-48b9-848d-25df4d2cdca3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SystemActions.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/SystemActions.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/User.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/User.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/User.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/User.hpp" afterDir="false" />
     </list>
@@ -43,6 +37,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../fmi_raster_graphic_edditor_fn45711" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -67,7 +62,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1589981557824</updated>
-      <workItem from="1589981561066" duration="8159000" />
+      <workItem from="1589981561066" duration="9476000" />
     </task>
     <task id="LOCAL-00001" summary="Basic classes added">
       <created>1589983112436</created>
@@ -90,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589986557429</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added default constructors, setter functions and a new class">
+      <created>1589989980266</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1589989980266</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,13 +102,18 @@
     <MESSAGE value="Basic classes added" />
     <MESSAGE value="Added getters in User class" />
     <MESSAGE value="Added a system action checker function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a system action checker function" />
+    <MESSAGE value="Added default constructors, setter functions and a new class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added default constructors, setter functions and a new class" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="585" y="90" key="CommitChangelistDialog2" timestamp="1589987089721">
+    <state x="585" y="90" key="CommitChangelistDialog2" timestamp="1589989979295">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="90" key="CommitChangelistDialog2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1589987089721" />
+    <state x="585" y="90" key="CommitChangelistDialog2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1589989979295" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1589990303286">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1589990303286" />
     <state x="814" y="418" key="Github.ShareDialog" timestamp="1589981583052">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

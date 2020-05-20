@@ -7,10 +7,12 @@ class User
 public:
     User();
     ~User();
+    User &operator=(const User& other);
+    User(const User &other);
 
-    UserTiers::Tier getUserTier();
-    char* getUsername();
-    unsigned short int getUserAge();
+    UserTiers::Tier getUserTier() const;
+    char* getUsername() const;
+    unsigned short int getUserAge() const;
 
     void setUserTier(User &actor, User &subject, UserTiers::Tier newTier);
     void setUsername(User &actor, User &subject,const char* newUsername);
@@ -22,5 +24,5 @@ private:
     UserTiers::Tier fUserTier;
 
     void delUserMem();
-    void copyUser(User& other);
+    void copyUser(const User& other);
 };

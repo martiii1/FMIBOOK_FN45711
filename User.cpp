@@ -7,17 +7,17 @@ User::User()
     fUserTier = UserTiers::Tier::Nothing;
 }
 
-UserTiers::Tier User::getUserTier()
+UserTiers::Tier User::getUserTier() const
 {
     return fUserTier;
 }
 
-char *User::getUsername()
+char *User::getUsername() const
 {
     return fUsername;
 }
 
-unsigned short int User::getUserAge()
+unsigned short int User::getUserAge() const
 {
     return fAge;
 }
@@ -48,12 +48,28 @@ void User::delUserMem()
     delete[] fUsername;
 }
 
-void User::copyUser(User &other)
+void User::copyUser(const User &other)
 {
     char *tempName = new char[strlen(other.getUsername()) + 1];
 
     delUserMem();
 
     strcpy(fUsername, other.getUsername());
-    fUserTier =
+    fUserTier = other.getUserTier();
+}
+
+User &User::operator=(const User &other)
+{
+   if(this != &other)
+   {
+       delUserMem();
+       copyUser(other);
+   }
+   else
+       return *this;
+}
+
+User::User(const User &other)
+{
+    copyUser(other);
 }
