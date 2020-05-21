@@ -22,17 +22,13 @@ unsigned short int UserData::getUserAge() const
     return fAge;
 }
 
-void UserData::setUserTier(UserData &actor, UserData &subject, UserTiers::Tier newTier)
+void UserData::setUserTier(UserTiers::Tier newTier)
 {
-    SystemActions::isTheActionAllowed(actor, SystemActions::Actions::Change_tier, subject);
-
-    subject.fUserTier = newTier;
+    fUserTier = newTier;
 }
 
-void UserData::setUsername(UserData &actor,UserData &subject, char *newUsername)
+void UserData::setUsername(const char *newUsername)
 {
-    SystemActions::isTheActionAllowed(actor, SystemActions::Actions::Change_username, subject);
-
     delete[] fUsername;
     fUsername = new char[strlen(newUsername) + 1];
     strcpy(fUsername, newUsername);

@@ -21,8 +21,4 @@ public:
         Change_tier
     };
 
-   static bool actionCheck(const UserData &actor, Actions actions,const UserData &subject);
-
-   static void isTheActionAllowed(const UserData &actor, Actions action, const UserData &subject);
-
 };

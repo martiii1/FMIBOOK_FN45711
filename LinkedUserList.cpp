@@ -38,3 +38,16 @@ void LinkedUserList::addUser(const UserData &newUser)
     }
 
 }
+
+void LinkedUserList::changeUserTier(const char* actor,const char* subject, UserTiers::Tier newTier)
+{
+    ActionPermissions::isTheActionAllowed(actor, SystemActions::Actions::Change_tier, subject);
+
+    newUserTier(subject,newTier);
+
+}
+
+void LinkedUserList::newUserTier(const char *username, UserTiers::Tier newTier)
+{
+
+}

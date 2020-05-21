@@ -1,6 +1,6 @@
 #pragma once
 #include "UserTiers.hpp"
-#include "SystemActions.hpp"
+#include "ActionPermissions.hpp"
 
 class UserData
 {
@@ -14,8 +14,8 @@ public:
     char* getUsername() const;
     unsigned short int getUserAge() const;
 
-    void setUserTier(UserData &actor, UserData &subject, UserTiers::Tier newTier);
-    void setUsername(UserData &actor, UserData &subject, char* newUsername);
+    void setUserTier(UserTiers::Tier newTier);
+    void setUsername(const char *newUsername);
 
 
 private:
