@@ -1,6 +1,8 @@
 #pragma once
 
 #include "LinkedUser.hpp"
+#include "ActionPermissions.hpp"
+
 class LinkedUserList
 {
 public:
@@ -16,7 +18,12 @@ private:
     LinkedUser *fPointerToLastUser;
 
 
+    UserTiers::Tier getTierFromUsername(const char* username);
+
+
     void newUserTier(const char* username, UserTiers::Tier newTier);
+
+    void permissionChecker(const char* actor,const char* subject, SystemActions::Actions action);
 
 
 };
