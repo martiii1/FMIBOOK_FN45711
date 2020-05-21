@@ -6,11 +6,16 @@
 int main()
 {
 
+    int a;
+    std::cin >> a;
+    std::cout << a;
+
     LinkedUserList userBase;
-    UserData asd("Martin",UserTiers::Tier::Admin, 20);
 
-    userBase.addUser(asd);
+    //UserData asd("Martin",UserTiers::Tier::Admin, 20);
+
+    //userBase.addUser(asd);
 
 
-
+    return 0;
 }
