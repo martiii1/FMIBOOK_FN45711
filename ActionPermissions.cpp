@@ -1,4 +1,6 @@
 #include "ActionPermissions.hpp"
+#include <cstring>
+#include <iostream>
 
 bool ActionPermissions::actionCheck(const char *actorName, UserTiers::Tier actorTier, SystemActions::Actions action,
                                     const char *subjectName, UserTiers::Tier subjectTier)

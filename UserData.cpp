@@ -1,4 +1,5 @@
 #include "UserData.hpp"
+#include <cstring>
 
 UserData::UserData()
 {

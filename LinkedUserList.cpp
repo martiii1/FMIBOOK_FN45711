@@ -1,4 +1,6 @@
 #include "LinkedUserList.hpp"
+#include <iostream>
+#include <cstring>
 
 LinkedUserList::~LinkedUserList()
 {
@@ -44,7 +46,7 @@ void LinkedUserList::changeUserTier(const char* actor,const char* subject, UserT
     UserTiers::Tier tempActorTier = getTierFromUsername(actor);
     UserTiers::Tier tempSubjectTier = getTierFromUsername(subject);
 
-    ActionPermissions::isTheActionAllowed(tempActorTier, SystemActions::Actions::Change_tier, tempSubjectTier);
+    permissionChecker(actor,subject,SystemActions::Actions::Change_tier);
 
     newUserTier(subject,newTier);
 
