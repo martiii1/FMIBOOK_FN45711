@@ -1,7 +1,16 @@
 #include <iostream>
+#include "LinkedUserList.hpp"
+#include "UserData.hpp"
+#include "UserTiers.hpp"
 
 int main()
 {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+
+    LinkedUserList userBase;
+    UserData asd("Martin",UserTiers::Tier::Admin, 20);
+
+    userBase.addUser(asd);
+
+
+
 }

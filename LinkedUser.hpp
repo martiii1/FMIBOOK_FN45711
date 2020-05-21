@@ -10,5 +10,4 @@ public:
     UserData fLinkedUser;
     LinkedUser *fPointerToNextUser;
 
-
 };

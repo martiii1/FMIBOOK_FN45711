@@ -6,6 +6,7 @@ class UserData
 {
 public:
     UserData();
+    UserData(const char* username, UserTiers::Tier userTier, unsigned short int userAge);
     ~UserData();
     UserData &operator=(const UserData& other);
     UserData(const UserData &other);

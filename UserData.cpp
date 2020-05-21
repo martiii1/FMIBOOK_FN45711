@@ -69,3 +69,10 @@ UserData::UserData(const UserData &other)
 {
     copyUser(other);
 }
+
+UserData::UserData(const char *username, UserTiers::Tier userTier, unsigned short userAge)
+{
+    setUsername(username);
+    fAge = userAge;
+    fUserTier = userTier;
+}
