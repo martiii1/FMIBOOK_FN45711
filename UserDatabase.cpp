@@ -1,4 +1,5 @@
 #include "UserDatabase.hpp"
+#include <iostream>
 
 UserData *UserDatabase::allocateUserDatabase(unsigned int newCapacity)
 {
@@ -64,7 +65,7 @@ void UserDatabase::copyUserDatabase(const UserDatabase &other)
 
 UserDatabase &UserDatabase::operator=(const UserDatabase &other)
 {
-    if(this != &other)
+    if (this != &other)
         copyUserDatabase(other);
 
     return *this;
@@ -72,9 +73,19 @@ UserDatabase &UserDatabase::operator=(const UserDatabase &other)
 
 void UserDatabase::addUser(const UserData &newUser)
 {
-    if(fSize >= fCapacity - 1)
+    if (fSize >= fCapacity - 1)
         resizeAllUsers(fCapacity * 2);
 
     fAllUsers[fSize] = newUser;
     fSize++;
+
+}
+
+void UserDatabase::printAllUsers()
+{
+    for (int i = 0; i < fSize; i++)
+    {
+        fAllUsers[i].printUserData();
+    }
+
 }

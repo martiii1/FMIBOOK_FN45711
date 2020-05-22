@@ -4,9 +4,7 @@
 
 UserData::UserData()
 {
-    fUsername = nullptr;
-    fAge = 0;
-    fUserTier = UserTiers::Tier::Nothing;
+    defaultUserInit();
 }
 
 UserTiers::Tier UserData::getUserTier() const
@@ -39,8 +37,6 @@ void UserData::setUsername(const char *newUsername)
 UserData::~UserData()
 {
     delUserMem();
-
-    std::cout << "Destruct called \n"; // TEST !!!! DELETE LATER
 }
 
 void UserData::delUserMem()
@@ -77,7 +73,21 @@ UserData::UserData(const UserData &other)
 
 UserData::UserData(const char *username, UserTiers::Tier userTier, unsigned short userAge)
 {
+    defaultUserInit();
+
     setUsername(username);
     fAge = userAge;
     fUserTier = userTier;
+}
+
+void UserData::defaultUserInit()
+{
+    fUsername = nullptr;
+    fAge = 0;
+    fUserTier = UserTiers::Tier::Nothing;
+}
+
+void UserData::printUserData()
+{
+    std::cout << "Username: " << fUsername << "  is " << fUserTier << "  and is " << fAge << " years old \n";
 }

@@ -18,6 +18,8 @@ public:
 
     void addUser(const UserData& newUser);
 
+    void printAllUsers();
+
 private:
     UserData *fAllUsers;
     unsigned int fCapacity;

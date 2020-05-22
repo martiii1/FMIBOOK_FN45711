@@ -19,6 +19,8 @@ public:
     void setUserTier(UserTiers::Tier newTier);
     void setUsername(const char *newUsername);
 
+    void printUserData();
+
 
 private:
     char* fUsername;
@@ -27,4 +29,5 @@ private:
 
     void delUserMem();
     void copyUser(const UserData& other);
+    void defaultUserInit();
 };
