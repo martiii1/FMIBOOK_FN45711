@@ -20,8 +20,6 @@ public:
     void setUsername(const char *newUsername);
 
 
-
-
 private:
     char* fUsername;
     unsigned short int fAge;

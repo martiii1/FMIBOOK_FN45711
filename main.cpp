@@ -12,7 +12,7 @@ int main()
 
     LinkedUserList userBase;
 
-    //UserData asd("Martin",UserTiers::Tier::Admin, 20);
+    UserData asd("Martin",UserTiers::Tier::Admin, 20);
 
     //userBase.addUser(asd);
 

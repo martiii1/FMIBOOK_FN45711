@@ -3,4 +3,4 @@ project(FMIBOOK_FN45711)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(FMIBOOK_FN45711 main.cpp UserTiers.cpp UserTiers.hpp SystemActions.cpp SystemActions.hpp UserData.cpp UserData.hpp MainNetworkEngine.cpp MainNetworkEngine.hpp LinkedUser.cpp LinkedUser.hpp LinkedUserList.cpp LinkedUserList.hpp ActionPermissions.cpp ActionPermissions.hpp)
+add_executable(FMIBOOK_FN45711 main.cpp UserTiers.cpp UserTiers.hpp SystemActions.cpp SystemActions.hpp UserData.cpp UserData.hpp MainNetworkEngine.cpp MainNetworkEngine.hpp ActionPermissions.cpp ActionPermissions.hpp)
