@@ -51,11 +51,12 @@ void UserData::delUserMem()
 void UserData::copyUser(const UserData &other)
 {
     char *tempName = new char[strlen(other.getUsername()) + 1];
-
+    strcpy(tempName, other.getUsername());
     delUserMem();
 
-    strcpy(fUsername, other.getUsername());
+    fUsername = tempName;
     fUserTier = other.getUserTier();
+    fAge = other.fAge;
 }
 
 UserData &UserData::operator=(const UserData &other)

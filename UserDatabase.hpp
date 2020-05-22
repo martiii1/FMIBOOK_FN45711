@@ -7,7 +7,16 @@ class UserDatabase
 
 public:
     UserDatabase();
+
+    UserDatabase(unsigned int initialCapacity);
+
+    UserDatabase(const UserDatabase &other);
+
+    UserDatabase &operator=(const UserDatabase &other);
+
     ~UserDatabase();
+
+    void addUser(const UserData& newUser);
 
 private:
     UserData *fAllUsers;
@@ -17,5 +26,8 @@ private:
     UserData *allocateUserDatabase(unsigned int newCapacity);
 
     void resizeAllUsers(unsigned int newCapacity);
+
     void delMem();
+
+    void copyUserDatabase(const UserDatabase &other);
 };
