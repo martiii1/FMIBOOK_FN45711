@@ -1,5 +1,6 @@
 #include "UserData.hpp"
 #include <cstring>
+#include <iostream>
 
 UserData::UserData()
 {
@@ -38,6 +39,8 @@ void UserData::setUsername(const char *newUsername)
 UserData::~UserData()
 {
     delUserMem();
+
+    std::cout << "Destruct called \n"; // TEST !!!! DELETE LATER
 }
 
 void UserData::delUserMem()
