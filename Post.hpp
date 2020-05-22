@@ -6,21 +6,23 @@ class Post
 {
 public:
     Post();
+
     ~Post();
 
     void createPost(const char *usernameOfPoster, const char *postType, const char *post);
 
 
 private:
-    char* fPostUsername;
+    char *fPostUsername;
     unsigned int fPostNumber;
     PostType::Type fType;
-    char* fPost;
+    char *fPost;
 
     static unsigned int fPostUniqueNumber;
 
     void delMem();
+
     void emptyPost();
 
-   void setTypeFromStr(const char* type);
+    void setTypeFromStr(const char *type);
 };

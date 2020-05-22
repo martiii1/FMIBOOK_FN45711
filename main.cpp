@@ -12,7 +12,7 @@ int main()
     testDatabase.addUser(mUser);
     testDatabase.addUser(vUser);
 
-    testDatabase = testDatabase;
+    testDatabase.printAllUsers();
 
     return 0;
 }

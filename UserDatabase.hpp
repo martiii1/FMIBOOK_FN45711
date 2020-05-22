@@ -4,7 +4,6 @@
 
 class UserDatabase
 {
-
 public:
     UserDatabase();
 

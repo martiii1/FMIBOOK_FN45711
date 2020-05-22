@@ -54,7 +54,7 @@ UserDatabase::UserDatabase(const UserDatabase &other)
 void UserDatabase::copyUserDatabase(const UserDatabase &other)
 {
     delMem();
-    allocateUserDatabase(other.fCapacity);
+    fAllUsers = allocateUserDatabase(other.fCapacity);
     fSize = other.fSize;
 
     for (int i = 0; i < fSize; i++)

@@ -2,6 +2,8 @@
 #include <iostream>
 #include <cstring>
 
+unsigned int Post::fPostUniqueNumber = 0;
+
 Post::Post()
 {
     emptyPost();
@@ -40,9 +42,6 @@ void Post::emptyPost()
     fPostNumber = 0;
     fType = PostType::Type::Nothing;
     fPost = nullptr;
-
-    fPostUniqueNumber = 0;
-
 }
 
 void Post::setTypeFromStr(const char *type)
