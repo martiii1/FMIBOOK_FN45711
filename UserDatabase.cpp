@@ -104,18 +104,25 @@ UserTiers::Tier UserDatabase::getTierFromUsername(const char *username)
 void UserDatabase::removeUser(const char *username)
 {
     UserData *fTempUsers = new UserData[fCapacity];
-    size_t counter = 0;
+    size_t counterNew = 0;
+    size_t counterOld= 0;
 
-    // fSize starts at 0 so by removing one user the counter should go to ( fSize - 1 ) - 1 (the removed user)
-    while (counter != fSize - 2)
+    while (counterNew < fSize - 1)
     {
-        if (strcmp(username, fAllUsers[counter].getUsername()) == 0)
+        if (strcmp(username, fAllUsers[counterOld].getUsername()) == 0)
+        {
+            counterOld++;
             continue;
+        }
 
-        fTempUsers[counter] = fAllUsers[counter];
-        counter++;
+        fTempUsers[counterNew] = fAllUsers[counterOld];
+        counterOld++;
+        counterNew++;
     }
 
+    delete [] fAllUsers;
+    fAllUsers = fTempUsers;
+    fSize--;
 }
 
 unsigned int UserDatabase::getSize()

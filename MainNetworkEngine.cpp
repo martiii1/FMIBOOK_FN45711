@@ -256,8 +256,6 @@ void MainNetworkEngine::remove_user(const char *commandLineText)
     try
     {
         permissionChecker(tempActorTier, tempAction);
-
-        usernameAvailabilityChecker(tempSubject);
     }
     catch (...)
     {
@@ -269,6 +267,10 @@ void MainNetworkEngine::remove_user(const char *commandLineText)
     }
 
     fUsers.removeUser(tempSubject);
+
+    delete [] tempCommandLine;
+    delete [] tempActor;
+    delete [] tempSubject;
 }
 
 void MainNetworkEngine::start()
