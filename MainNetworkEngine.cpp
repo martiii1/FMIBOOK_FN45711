@@ -153,33 +153,122 @@ void MainNetworkEngine::add_user(const char *commandLineText)
 
     char *token = strtok(tempCommandLine, " "); // This takes the name out of a correct input
 
+    // Actor username
     tempActor = new char[strlen(token) + 1];
     strcpy(tempActor,token);
 
+    // Skip action
     token = strtok(nullptr, " ");
 
-    UserTiers::Tier tempActorTier = fUsers.getTierFromUsername(actor);
+    // New username
+    token = strtok(nullptr, " ");
+    if(token == nullptr)
+    {
+        delete [] tempCommandLine;
+        delete [] tempActor;
 
-    if (age == -1)
         throw std::invalid_argument("Unexpected input! Try again. \n");
+    }
 
-    permissionChecker(tempActorTier, action);
+    tempSubject = new char[strlen(token) + 1];
+    strcpy(tempSubject,token);
 
-    usernameAvailabilityChecker(subject);
+    // Age
+    token = strtok(nullptr, " ");
+    if(token == nullptr)
+    {
+        delete [] tempCommandLine;
+        delete [] tempActor;
+        delete [] tempSubject;
 
-    UserData tempUser(subject, UserTiers::Tier::Basic_User, age);
+        throw std::invalid_argument("Unexpected input! Try again. \n");
+    }
+    tempAge = atoi(token);
+
+    // Age check
+    if(tempAge <=0 || tempAge > 100)  // Somewhat random limit for the age for a fast check
+    {
+        delete [] tempCommandLine;
+        delete [] tempActor;
+        delete [] tempSubject;
+
+        throw std::invalid_argument("Unexpected input! Try again. \n");
+    }
+
+    UserTiers::Tier tempActorTier = fUsers.getTierFromUsername(tempActor);
+
+    try
+    {
+        permissionChecker(tempActorTier, tempAction);
+
+        usernameAvailabilityChecker(tempSubject);
+    }
+    catch (...)
+    {
+        delete [] tempCommandLine;
+        delete [] tempActor;
+        delete [] tempSubject;
+
+        throw;
+    }
+
+    UserData tempUser(tempSubject, UserTiers::Tier::Basic_User, tempAge);
     fUsers.addUser(tempUser);
 
+    delete [] tempCommandLine;
+    delete [] tempActor;
+    delete [] tempSubject;
 }
 
 void MainNetworkEngine::remove_user(const char *commandLineText)
 {
-    UserTiers::Tier tempActorTier = fUsers.getTierFromUsername(actor);
+    char *tempCommandLine = new char[strlen(commandLineText) + 1];
+    strcpy(tempCommandLine,commandLineText);
 
-    permissionChecker(tempActorTier, action);
+    const char *tempAction = "remove_user";
+    char *tempActor;
+    char *tempSubject;
 
-    fUsers.removeUser(subject);
+    char *token = strtok(tempCommandLine, " "); // This takes the name out of a correct input
 
+    // Actor username
+    tempActor = new char[strlen(token) + 1];
+    strcpy(tempActor,token);
+
+    // Skip action
+    token = strtok(nullptr, " ");
+
+    // New username
+    token = strtok(nullptr, " ");
+    if(token == nullptr)
+    {
+        delete [] tempCommandLine;
+        delete [] tempActor;
+
+        throw std::invalid_argument("Unexpected input! Try again. \n");
+    }
+
+    tempSubject = new char[strlen(token) + 1];
+    strcpy(tempSubject,token);
+
+
+    UserTiers::Tier tempActorTier = fUsers.getTierFromUsername(tempActor);
+    try
+    {
+        permissionChecker(tempActorTier, tempAction);
+
+        usernameAvailabilityChecker(tempSubject);
+    }
+    catch (...)
+    {
+        delete [] tempCommandLine;
+        delete [] tempActor;
+        delete [] tempSubject;
+
+        throw;
+    }
+
+    fUsers.removeUser(tempSubject);
 }
 
 void MainNetworkEngine::start()
