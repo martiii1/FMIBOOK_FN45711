@@ -3,90 +3,73 @@
 #include <iostream>
 
 
-void MainNetworkEngine::inputParser(char *commandLine)
+void MainNetworkEngine::inputParser(const char *commandLine)
 {
-    char *tempActor;
-    char *tempSubject;
-    char *tempAction;
-    int tempAge = -1;
-
-    char *token = strtok(commandLine, " ");
-    if (token == nullptr)
-        throw std::invalid_argument("Unexpected input! Try again. \n");
-
-    tempActor = new char[strlen(token) + 1];
-    strcpy(tempActor, token);                                                   // Gets the actor name
-
-    token = strtok(nullptr, " ");
-    if (token == nullptr)
-    {
-        delete[] tempActor;
-        throw std::invalid_argument("Unexpected input! Try again. \n");
-    }
-
-    tempAction = new char[strlen(token) + 1];
-    strcpy(tempAction, token);                                                  // Gets the action
-
-    token = strtok(nullptr, " ");
-    if (token == nullptr)
-    {
-        delete[] tempAction;
-        delete[] tempActor;
-        throw std::invalid_argument("Unexpected input! Try again. \n");
-    }
-
-    tempSubject = new char[strlen(token) + 1];
-    strcpy(tempSubject, token);                                                 // Gets the subject name
-
-    token = strtok(nullptr, " ");                             // Gets possibly age if new user is added
-    if (token != nullptr)
-    {
-        tempAge = atoi(token);
-        if (tempAge > 100 || tempAge < 0)
-        {
-            delete[] tempAction;
-            delete[] tempActor;
-            delete[] tempSubject;
-            throw std::invalid_argument("Unexpected input! Try again. \n");
-        }
-    }
-
+    char *tempCommandLine = new char[strlen(commandLine) + 1];
+    strcpy(tempCommandLine,commandLine);
 
     try
     {
-        commandCaller(tempActor, tempAction, tempSubject, tempAge);
+        commandCaller(commandLine);
     }
     catch (...)
     {
-        delete[] tempAction;
-        delete[] tempActor;
-        delete[] tempSubject;
+        delete [] tempCommandLine;
         throw;
     }
 
-    delete[] tempAction;
-    delete[] tempActor;
-    delete[] tempSubject;
+    delete [] tempCommandLine;
 
 }
 
-void MainNetworkEngine::commandCaller(const char *actor, const char *action, const char *subject, int age)
+void MainNetworkEngine::commandCaller(const char *commandLineText)
 {
-    if (strcmp(action, "display_users") == 0)
+    char *tempCommandLine = new char[strlen(commandLineText) + 1];
+    strcpy(tempCommandLine,commandLineText);
+
+    char *token = strtok(tempCommandLine, " "); // This takes the name out of a correct input
+    if (token == nullptr)
     {
-        show_users();
+        delete [] tempCommandLine;
+        throw std::invalid_argument("Unexpected input! Try again. \n");
     }
 
-    if (strcmp(action, "add_user") == 0)
+    token = strtok(nullptr, " "); // This takes the action out of a correct input
+    if (token == nullptr)
     {
-        add_user(actor, action, subject, age);
+        delete[] tempCommandLine;
+        throw std::invalid_argument("Unexpected input! Try again. \n");
     }
 
-    if (strcmp(action, "remove_user") == 0)
+    try
     {
-        remove_user(actor, action, subject);
+        if (strcmp(token, "display_users") == 0)
+        {
+            show_users();
+        }
+
+        if (strcmp(token, "display_posts") == 0)
+        {
+            show_posts();
+        }
+
+        if (strcmp(token, "add_user") == 0)
+        {
+            add_user(commandLineText);
+        }
+
+        if (strcmp(token, "remove_user") == 0)
+        {
+            remove_user(commandLineText);
+        }
+    }
+    catch (...)
+    {
+        delete [] tempCommandLine;
+        throw;
     }
 
+    delete [] tempCommandLine;
 }
 
 void MainNetworkEngine::permissionChecker(UserTiers::Tier actorTier, const char *action)
@@ -158,8 +141,23 @@ void MainNetworkEngine::permissionChecker(UserTiers::Tier actorTier, const char 
 
 }
 
-void MainNetworkEngine::add_user(const char *actor, const char *action, const char *subject, int age)
+void MainNetworkEngine::add_user(const char *commandLineText)
 {
+    char *tempCommandLine = new char[strlen(commandLineText) + 1];
+    strcpy(tempCommandLine,commandLineText);
+
+    const char *tempAction = "add_user";
+    char *tempActor;
+    char *tempSubject;
+    int tempAge = -1;
+
+    char *token = strtok(tempCommandLine, " "); // This takes the name out of a correct input
+
+    tempActor = new char[strlen(token) + 1];
+    strcpy(tempActor,token);
+
+    token = strtok(nullptr, " ");
+
     UserTiers::Tier tempActorTier = fUsers.getTierFromUsername(actor);
 
     if (age == -1)
@@ -174,7 +172,7 @@ void MainNetworkEngine::add_user(const char *actor, const char *action, const ch
 
 }
 
-void MainNetworkEngine::remove_user(const char *actor, const char *action, const char *subject)
+void MainNetworkEngine::remove_user(const char *commandLineText)
 {
     UserTiers::Tier tempActorTier = fUsers.getTierFromUsername(actor);
 
@@ -229,4 +227,15 @@ void MainNetworkEngine::usernameAvailabilityChecker(const char *username)
     {
         throw std::exception("Username is already used! \n");
     }
+}
+
+void MainNetworkEngine::show_posts()
+{
+    fPosts.printAllPosts();
+
+}
+
+void MainNetworkEngine::postCommandCaller(const char *commandLineText)
+{
+
 }

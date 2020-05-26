@@ -1,4 +1,5 @@
 #include "PostsDatabase.hpp"
+#include <iostream>
 
 PostsDatabase::PostsDatabase()
 {
@@ -25,7 +26,7 @@ PostsDatabase::PostsDatabase(unsigned int initialCapacity)
 
 void PostsDatabase::delMem()
 {
-    delete [] fAllPosts;
+    delete[] fAllPosts;
 
 }
 
@@ -45,4 +46,14 @@ void PostsDatabase::copyPostsDatabase(const PostsDatabase &other)
 PostsDatabase::PostsDatabase(const PostsDatabase &other)
 {
     copyPostsDatabase(other);
+}
+
+void PostsDatabase::printAllPosts()
+{
+    for (int i = 0; i < fSize; i++)
+    {
+        std::cout << "Post #" << fAllPosts[i].getPostNumber() << ", Type: " << fAllPosts[i].getPostType()
+        << ",  text: " << fAllPosts->getPostTxt() << std::endl;
+    }
+
 }

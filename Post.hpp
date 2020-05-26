@@ -11,13 +11,17 @@ public:
 
     void createPost(const char *usernameOfPoster, const char *postType, const char *post);
 
+    unsigned int getPostNumber();
+
+    PostType::Type getPostType();
+
+    const char* getPostTxt();
 
 private:
     char *fPostUsername;
     unsigned int fPostNumber;
     PostType::Type fType;
     char *fPost;
-
     static unsigned int fPostUniqueNumber;
 
     void delMem();

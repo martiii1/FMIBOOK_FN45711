@@ -11,6 +11,8 @@ public:
 
     PostsDatabase(const PostsDatabase &other);
 
+    void printAllPosts();
+
 private:
     Post *fAllPosts;
     unsigned int fSize;

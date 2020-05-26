@@ -59,3 +59,18 @@ void Post::setTypeFromStr(const char *type)
     }
 
 }
+
+const char *Post::getPostTxt()
+{
+    return fPost;
+}
+
+PostType::Type Post::getPostType()
+{
+    return fType;
+}
+
+unsigned int Post::getPostNumber()
+{
+    return fPostNumber;
+}

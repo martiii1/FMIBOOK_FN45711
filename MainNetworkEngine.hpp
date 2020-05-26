@@ -14,17 +14,21 @@ private:
     UserDatabase fUsers;
     PostsDatabase fPosts;
 
-    void inputParser(char *commandLine);
+    void inputParser(const char *commandLine);
 
-    void commandCaller(const char *actor, const char *action, const char *subject, int age);
+    void commandCaller(const char *commandLineText);
 
-    void show_users();
+    void postCommandCaller(const char *commandLineText);
 
     void permissionChecker(UserTiers::Tier actorTier, const char *action);
 
     void usernameAvailabilityChecker(const char *username);
 
-    void add_user(const char *actor, const char *action, const char *subject, int age);
+    void show_users();
 
-    void remove_user(const char *actor, const char *action, const char *subject);
+    void show_posts();
+
+    void add_user(const char *commandLineText);
+
+    void remove_user(const char *commandLineText);
 };
