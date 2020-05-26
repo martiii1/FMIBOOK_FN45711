@@ -23,6 +23,8 @@ public:
 
     void removeUser(const char* username);
 
+    unsigned int getSize();
+
 private:
     UserData *fAllUsers;
     unsigned int fCapacity;

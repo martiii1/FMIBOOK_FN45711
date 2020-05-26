@@ -18,6 +18,8 @@ private:
 
     void commandCaller(const char *actor, const char *action, const char *subject, int age);
 
+    void show_users();
+
     void permissionChecker(UserTiers::Tier actorTier, const char *action);
 
     void add_user(const char *actor, const char *action, const char *subject, int age);

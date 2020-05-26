@@ -117,3 +117,8 @@ void UserDatabase::removeUser(const char *username)
     }
 
 }
+
+unsigned int UserDatabase::getSize()
+{
+    return fSize;
+}

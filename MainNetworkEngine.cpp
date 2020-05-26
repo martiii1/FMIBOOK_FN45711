@@ -74,12 +74,12 @@ void MainNetworkEngine::commandCaller(const char *actor, const char *action, con
 {
     if (strcmp(action, "display_users") == 0)
     {
-
+        show_users();
     }
 
     if (strcmp(action, "add_user") == 0)
     {
-        add_user(action, action, subject, age);
+        add_user(actor, action, subject, age);
     }
 
     if (strcmp(action, "remove_user") == 0)
@@ -186,6 +186,11 @@ void MainNetworkEngine::start()
 {
     char *tempCommandBuffer = new char[1000];
     std::cout << "Starting... \n";
+    std::cout << "Please enter the admin username: ";
+    std::cin.getline(tempCommandBuffer, 1000);
+    UserData tempAdmin(tempCommandBuffer,UserTiers::Tier::Admin,20);
+    fUsers.addUser(tempAdmin);
+
     do
     {
         std::cin.getline(tempCommandBuffer, 1000);
@@ -209,4 +214,9 @@ void MainNetworkEngine::start()
     } while (tempCommandBuffer[0] != 0);
 
     delete[] tempCommandBuffer;
+}
+
+void MainNetworkEngine::show_users()
+{
+    fUsers.printAllUsers();
 }
