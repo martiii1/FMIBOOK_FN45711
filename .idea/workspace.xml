@@ -11,13 +11,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f4f5121-6fba-48b9-848d-25df4d2cdca3" name="Default Changelist" comment="new class">
+    <list default="true" id="5f4f5121-6fba-48b9-848d-25df4d2cdca3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActionPermissions.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActionPermissions.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainNetworkEngine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MainNetworkEngine.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainNetworkEngine.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/MainNetworkEngine.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserDatabase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/UserDatabase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserDatabase.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/UserDatabase.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +74,7 @@
       <workItem from="1590091922507" duration="11000" />
       <workItem from="1590096933909" duration="381000" />
       <workItem from="1590150834124" duration="14417000" />
-      <workItem from="1590490585251" duration="3387000" />
+      <workItem from="1590490585251" duration="8496000" />
     </task>
     <task id="LOCAL-00001" summary="Basic classes added">
       <created>1589983112436</created>
@@ -223,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590167208958</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="reformatting">
+      <created>1590494514662</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1590494514662</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,17 +257,18 @@
     <MESSAGE value="Added big 4" />
     <MESSAGE value="Start of input processing" />
     <MESSAGE value="new class" />
-    <option name="LAST_COMMIT_MESSAGE" value="new class" />
+    <MESSAGE value="reformatting" />
+    <option name="LAST_COMMIT_MESSAGE" value="reformatting" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590150953828">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590150953828" />
-    <state x="585" y="90" key="CommitChangelistDialog2" timestamp="1590179622320">
+    <state x="585" y="90" key="CommitChangelistDialog2" timestamp="1590494513567">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="90" key="CommitChangelistDialog2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590179622320" />
+    <state x="585" y="90" key="CommitChangelistDialog2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590494513567" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1590154583673">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -273,22 +281,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="786" y="219" key="Github.UntrackedFilesDialog/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1589981593461" />
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1590179623730">
+    <state width="1877" height="192" key="GridCell.Tab.0.bottom" timestamp="1590504351192">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590179623730" />
-    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1590179623730">
+    <state width="1877" height="192" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590504351192" />
+    <state width="1877" height="192" key="GridCell.Tab.0.center" timestamp="1590504351192">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590179623730" />
-    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1590179623730">
+    <state width="1877" height="192" key="GridCell.Tab.0.center/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590504351192" />
+    <state width="1877" height="192" key="GridCell.Tab.0.left" timestamp="1590504351191">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590179623730" />
-    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1590179623730">
+    <state width="1877" height="192" key="GridCell.Tab.0.left/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590504351191" />
+    <state width="1877" height="192" key="GridCell.Tab.0.right" timestamp="1590504351192">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590179623730" />
+    <state width="1877" height="192" key="GridCell.Tab.0.right/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590504351192" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1590179623730">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -305,10 +313,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590179623730" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1590167210839">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1590494516565">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590167210839" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590494516565" />
     <state x="769" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590004952692">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -325,9 +333,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590004448027" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1590492196632">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1590503761609">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590492196632" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590503761609" />
   </component>
 </project>

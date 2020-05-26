@@ -19,6 +19,10 @@ public:
 
     void printAllUsers();
 
+    UserTiers::Tier getTierFromUsername(const char *username);
+
+    void removeUser(const char* username);
+
 private:
     UserData *fAllUsers;
     unsigned int fCapacity;

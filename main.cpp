@@ -1,18 +1,11 @@
 #include <iostream>
-#include "UserDatabase.hpp"
+#include "MainNetworkEngine.hpp"
 
 int main()
 {
-    UserData mUser("marti",UserTiers::Tier::Admin,20);
-    UserData vUser("victor",UserTiers::Tier::Admin,19);
-    UserData cUser("ceci",UserTiers::Tier::Admin,20);
+    MainNetworkEngine test1;
 
-    UserDatabase testDatabase(5);
-
-    testDatabase.addUser(mUser);
-    testDatabase.addUser(vUser);
-
-    testDatabase.printAllUsers();
+    test1.start();
 
     return 0;
 }

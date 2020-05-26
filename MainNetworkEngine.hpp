@@ -1,4 +1,5 @@
 #pragma once
+
 #include "UserDatabase.hpp"
 #include "PostsDatabase.hpp"
 
@@ -7,15 +8,19 @@ class MainNetworkEngine
 public:
 
     void start();
-    void commandCaller();
-
 
 
 private:
     UserDatabase fUsers;
     PostsDatabase fPosts;
 
-    void inputParser(char* commandLine);
-    void commandCaller(const char* actor,const char* action, const char* subject,int age);
-    void permissionChecker(const char *actor, const char *action, const char *subject);
+    void inputParser(char *commandLine);
+
+    void commandCaller(const char *actor, const char *action, const char *subject, int age);
+
+    void permissionChecker(UserTiers::Tier actorTier, const char *action);
+
+    void add_user(const char *actor, const char *action, const char *subject, int age);
+
+    void remove_user(const char *actor, const char *action, const char *subject);
 };
