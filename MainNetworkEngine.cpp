@@ -58,6 +58,11 @@ void MainNetworkEngine::commandCaller(const char *commandLineText)
             add_user(commandLineText);
         }
 
+        if (strcmp(token, "add_moderator") == 0)
+        {
+            add_moderator(commandLineText);
+        }
+
         if (strcmp(token, "remove_user") == 0)
         {
             remove_user(commandLineText);
@@ -75,6 +80,14 @@ void MainNetworkEngine::commandCaller(const char *commandLineText)
 void MainNetworkEngine::permissionChecker(UserTiers::Tier actorTier, const char *action)
 {
     if (strcmp(action, "add_user") == 0)
+    {
+        if (actorTier != UserTiers::Tier::Admin)
+            throw std::exception("You do not have permission to do that! \n");
+
+        return;
+    }
+
+    if (strcmp(action, "add_moderator") == 0)
     {
         if (actorTier != UserTiers::Tier::Admin)
             throw std::exception("You do not have permission to do that! \n");
@@ -328,5 +341,85 @@ void MainNetworkEngine::show_posts()
 
 void MainNetworkEngine::postCommandCaller(const char *commandLineText)
 {
+
+}
+
+void MainNetworkEngine::add_moderator(const char *commandLineText)
+{
+    char *tempCommandLine = new char[strlen(commandLineText) + 1];
+    strcpy(tempCommandLine,commandLineText);
+
+    const char *tempAction = "add_moderator";
+    char *tempActor;
+    char *tempSubject;
+    int tempAge = -1;
+
+    char *token = strtok(tempCommandLine, " "); // This takes the name out of a correct input
+
+    // Actor username
+    tempActor = new char[strlen(token) + 1];
+    strcpy(tempActor,token);
+
+    // Skip action
+    token = strtok(nullptr, " ");
+
+    // New username
+    token = strtok(nullptr, " ");
+    if(token == nullptr)
+    {
+        delete [] tempCommandLine;
+        delete [] tempActor;
+
+        throw std::invalid_argument("Unexpected input! Try again. \n");
+    }
+
+    tempSubject = new char[strlen(token) + 1];
+    strcpy(tempSubject,token);
+
+    // Age
+    token = strtok(nullptr, " ");
+    if(token == nullptr)
+    {
+        delete [] tempCommandLine;
+        delete [] tempActor;
+        delete [] tempSubject;
+
+        throw std::invalid_argument("Unexpected input! Try again. \n");
+    }
+    tempAge = atoi(token);
+
+    // Age check
+    if(tempAge <=0 || tempAge > 100)  // Somewhat random limit for the age for a fast check
+    {
+        delete [] tempCommandLine;
+        delete [] tempActor;
+        delete [] tempSubject;
+
+        throw std::invalid_argument("Unexpected input! Try again. \n");
+    }
+
+    UserTiers::Tier tempActorTier = fUsers.getTierFromUsername(tempActor);
+
+    try
+    {
+        permissionChecker(tempActorTier, tempAction);
+
+        usernameAvailabilityChecker(tempSubject);
+    }
+    catch (...)
+    {
+        delete [] tempCommandLine;
+        delete [] tempActor;
+        delete [] tempSubject;
+
+        throw;
+    }
+
+    UserData tempUser(tempSubject, UserTiers::Tier::Moderator, tempAge);
+    fUsers.addUser(tempUser);
+
+    delete [] tempCommandLine;
+    delete [] tempActor;
+    delete [] tempSubject;
 
 }
