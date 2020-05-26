@@ -22,6 +22,8 @@ private:
 
     void permissionChecker(UserTiers::Tier actorTier, const char *action);
 
+    void usernameAvailabilityChecker(const char *username);
+
     void add_user(const char *actor, const char *action, const char *subject, int age);
 
     void remove_user(const char *actor, const char *action, const char *subject);

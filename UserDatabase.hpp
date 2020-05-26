@@ -25,6 +25,8 @@ public:
 
     unsigned int getSize();
 
+    bool doesUsernameExist(const char* username);
+
 private:
     UserData *fAllUsers;
     unsigned int fCapacity;

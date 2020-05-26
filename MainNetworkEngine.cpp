@@ -167,6 +167,8 @@ void MainNetworkEngine::add_user(const char *actor, const char *action, const ch
 
     permissionChecker(tempActorTier, action);
 
+    usernameAvailabilityChecker(subject);
+
     UserData tempUser(subject, UserTiers::Tier::Basic_User, age);
     fUsers.addUser(tempUser);
 
@@ -219,4 +221,12 @@ void MainNetworkEngine::start()
 void MainNetworkEngine::show_users()
 {
     fUsers.printAllUsers();
+}
+
+void MainNetworkEngine::usernameAvailabilityChecker(const char *username)
+{
+    if(fUsers.doesUsernameExist(username))
+    {
+        throw std::exception("Username is already used! \n");
+    }
 }

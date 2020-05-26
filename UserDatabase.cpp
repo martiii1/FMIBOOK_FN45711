@@ -122,3 +122,15 @@ unsigned int UserDatabase::getSize()
 {
     return fSize;
 }
+
+bool UserDatabase::doesUsernameExist(const char *username)
+{
+    for (int i = 0;i < fSize ; i++)
+    {
+        if(strcmp(fAllUsers[i].getUsername(), username) == 0)
+        {
+            return true;
+        }
+    }
+    return false;
+}
