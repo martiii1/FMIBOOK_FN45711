@@ -9,12 +9,12 @@ Post::Post()
     emptyPost();
 }
 
-void Post::createPost(const char *usernameOfPoster, const char *postType, const char *post)
+void Post::createPost(const char *usernameOfPoster, PostType::Type postType, const char *post)
 {
     fPostUsername = new char[strlen(usernameOfPoster) + 1];
     strcpy(fPostUsername,usernameOfPoster);
 
-    setTypeFromStr(postType);
+    fType = postType;
 
     fPost = new char[strlen(post) + 1];
     strcpy(fPost, post);

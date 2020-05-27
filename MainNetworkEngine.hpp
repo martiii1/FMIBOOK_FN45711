@@ -38,5 +38,7 @@ private:
 
     void remove_user(const char *commandLineText);
 
+    void post(const char *commandLineText);
+
     void help();
 };

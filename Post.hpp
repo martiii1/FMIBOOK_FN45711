@@ -9,7 +9,7 @@ public:
 
     ~Post();
 
-    void createPost(const char *usernameOfPoster, const char *postType, const char *post);
+    void createPost(const char *usernameOfPoster, PostType::Type postType, const char *post);
 
     unsigned int getPostNumber();
 

@@ -27,16 +27,17 @@ void MainNetworkEngine::commandCaller(const char *commandLineText)
     char *tempCommandLine = new char[strlen(commandLineText) + 1];
     strcpy(tempCommandLine,commandLineText);
 
-    char *token = strtok(tempCommandLine, " "); // This takes the first word (name or a one word command)
+    char *token = strtok(tempCommandLine, " "); // This takes the first word (name or a one word command).
     if (token == nullptr)
     {
         delete [] tempCommandLine;
         throw std::invalid_argument("Unexpected input! Try again. \n");
     }
-    firstWordCommands(token);
+
+    firstWordCommands(token); // Checks if the first word is a command on its own.
 
 
-    token = strtok(nullptr, " "); // This takes the second word (most likely an action)
+    token = strtok(nullptr, " "); // This takes the second word (most likely an action).
     if (token == nullptr)
     {
         delete[] tempCommandLine;
@@ -49,25 +50,25 @@ void MainNetworkEngine::commandCaller(const char *commandLineText)
         {
             show_users();
         }
-
-        if (strcmp(token, "display_posts") == 0)
+        else if (strcmp(token, "display_posts") == 0)
         {
             show_posts();
         }
-
-        if (strcmp(token, "add_user") == 0)
+        else if (strcmp(token, "add_user") == 0)
         {
             add_user(commandLineText);
         }
-
-        if (strcmp(token, "add_moderator") == 0)
+        else if (strcmp(token, "add_moderator") == 0)
         {
             add_moderator(commandLineText);
         }
-
-        if (strcmp(token, "remove_user") == 0)
+        else if (strcmp(token, "remove_user") == 0)
         {
             remove_user(commandLineText);
+        }
+        else if (strcmp(token, "post") == 0)
+        {
+            post(commandLineText);
         }
     }
     catch (...)
@@ -455,10 +456,10 @@ void MainNetworkEngine::help()
     std::cout << "[name] display_posts - prints the raw data from all available posts (for testing purposes). \n \n";
 
     std::cout << "[name1] add_user [name2] [age] - Adds a new basic user with username [name2] and age [age], \n";
-    std::cout << "to add user [name1] has to be the Admin and [name2] has to be an unused username. \n \n";
+    std::cout << "to add a user [name1] has to be the Admin and [name2] has to be an unused username. \n \n";
 
     std::cout << "[name1] add_moderator [name2] [age] - Adds a new moderator user with name [name2] and age [age], \n";
-    std::cout << "to add moderator [name1] has to be the Admin and [name2] has to be an unused username. \n \n";
+    std::cout << "to add a moderator [name1] has to be the Admin and [name2] has to be an unused username. \n \n";
 
     std::cout << "[name1] remove_user [name2] - Removes the user with username [name2] and deletes all posts made by the user, \n";
     std::cout << "to remove a user [name1] has to be the Admin.\n \n";
@@ -472,3 +473,77 @@ void MainNetworkEngine::firstWordCommands(const char *commandText)
     }
 
 }
+
+void MainNetworkEngine::post(const char *commandLineText)
+{
+    char *tempCommandLine = new char[strlen(commandLineText) + 1];
+    strcpy(tempCommandLine,commandLineText);
+
+    const char *tempAction = "post";
+    char *tempActor;
+    char *tempPostType;
+
+    char *token = strtok(tempCommandLine, " "); // This takes the name of the poster/actor.
+
+    // Actor username
+    tempActor = new char[strlen(token) + 1];
+    strcpy(tempActor,token);
+
+    // Skip action
+    token = strtok(nullptr, " ");
+
+    // The type of post( [image], [link] or [text] ).
+    token = strtok(nullptr, " ");
+    if(token == nullptr)
+    {
+        delete [] tempCommandLine;
+        delete [] tempActor;
+
+        throw std::invalid_argument("Unexpected input! Try again. \n");
+    }
+    // Post type in text.
+    tempPostType = new char[strlen(token) + 1];
+    strcpy(tempPostType, token);
+
+    PostType::Type tempType;
+    try
+    {
+        tempType = fPosts.textToPostType(token);
+    }
+    catch (...)
+    {
+        delete [] tempCommandLine;
+        delete [] tempActor;
+        delete [] tempPostType;
+        throw;
+    }
+
+    // somehow get the remaining text ( add funcion )
+
+    UserTiers::Tier tempActorTier = fUsers.getTierFromUsername(tempActor);
+    try
+    {
+        permissionChecker(tempActorTier, tempAction);
+    }
+    catch (...)
+    {
+        delete [] tempCommandLine;
+        delete [] tempActor;
+        delete [] tempPostType;
+
+        throw;
+    }
+
+    Post tempPost;
+    tempPost.createPost(tempActor,tempType,"POST POST POST");
+
+    fPosts.createNewPost(tempPost);
+    std::cout << "Post created \n";
+
+    delete [] tempCommandLine;
+    delete [] tempActor;
+    delete [] tempPostType;
+
+
+}
+

@@ -11,7 +11,14 @@ public:
 
     PostsDatabase(const PostsDatabase &other);
 
+    PostsDatabase &operator=(const PostsDatabase &other);
+
     void printAllPosts();
+
+    PostType::Type textToPostType(const char *text);
+
+    void createNewPost(const Post &newPost);
+
 
 private:
     Post *fAllPosts;
@@ -24,4 +31,5 @@ private:
 
     void copyPostsDatabase(const PostsDatabase &other);
 
+    void resizeAllPosts(unsigned int newCapacity);
 };

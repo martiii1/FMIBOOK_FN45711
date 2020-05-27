@@ -3,7 +3,7 @@
 
 PostsDatabase::PostsDatabase()
 {
-    fAllPosts = nullptr;
+    fAllPosts = allocatePostDatabase(10);
     fSize = 0;
     fCapacity = 5;
 
@@ -56,4 +56,49 @@ void PostsDatabase::printAllPosts()
         << ",  text: " << fAllPosts->getPostTxt() << std::endl;
     }
 
+}
+
+void PostsDatabase::createNewPost(const Post &newPost)
+{
+    if (fSize >= fCapacity - 1)
+        resizeAllPosts(fCapacity * 2);
+
+    fAllPosts[fSize] = newPost;
+    fSize++;
+}
+
+void PostsDatabase::resizeAllPosts(unsigned int newCapacity)
+{
+    Post *tempPointer = new Post[newCapacity];
+
+    for (int i = 0; i < fSize; i++)
+    {
+        tempPointer[i] = fAllPosts[i];
+    }
+    delMem();
+
+    fAllPosts = tempPointer;
+    fCapacity = newCapacity;
+}
+
+PostsDatabase &PostsDatabase::operator=(const PostsDatabase &other)
+{
+    if (this != &other)
+        copyPostsDatabase(other);
+
+    return *this;
+}
+
+PostType::Type PostsDatabase::textToPostType(const char *text)
+{
+    if(strcmp(text, "[image]") == 0)
+        return PostType::Type::Image;
+
+    if(strcmp(text, "[text]") == 0)
+        return PostType::Type::Text;
+
+    if(strcmp(text, "[url]") == 0)
+        return PostType::Type::Link;
+
+    throw std::invalid_argument("Unsupported post type! \n");
 }
