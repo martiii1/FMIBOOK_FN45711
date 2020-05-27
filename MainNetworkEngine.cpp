@@ -449,3 +449,19 @@ bool MainNetworkEngine::checkForExit(const char *text)
         return false;
     }
 }
+
+void MainNetworkEngine::help()
+{
+    std::cout << "[name] display_users - prints all registered users, their rank(the enum number) and their age. \n \n";
+
+    std::cout << "[name] display_posts - prints the raw data from all available posts (for testing purposes). \n \n";
+
+    std::cout << "[name1] add_user [name2] [age] - Adds a new basic user with username [name2] and age [age], \n";
+    std::cout << "to add user [name1] has to be the Admin and [name2] has to be an unused username. \n \n";
+
+    std::cout << "[name1] add_moderator [name2] [age] - Adds a new moderator user with name [name2] and age [age], \n";
+    std::cout << "to add moderator [name1] has to be the Admin and [name2] has to be an unused username. \n \n";
+
+    std::cout << "[name1] remove_user [name2] - Removes the user with username [name2] and deletes all posts made by the user, \n";
+    std::cout << "to remove a user [name1] has to be the Admin.\n \n";
+}

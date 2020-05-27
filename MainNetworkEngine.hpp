@@ -35,4 +35,6 @@ private:
     void add_moderator(const char *commandLineText);
 
     void remove_user(const char *commandLineText);
+
+    void help();
 };
