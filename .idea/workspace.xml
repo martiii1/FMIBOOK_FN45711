@@ -73,7 +73,7 @@
       <workItem from="1590150834124" duration="14417000" />
       <workItem from="1590490585251" duration="24707000" />
       <workItem from="1590576816777" duration="398000" />
-      <workItem from="1590581712962" duration="2301000" />
+      <workItem from="1590581712962" duration="2564000" />
     </task>
     <task id="LOCAL-00001" summary="Basic classes added">
       <created>1589983112436</created>
@@ -292,14 +292,20 @@
       <option name="project" value="LOCAL" />
       <updated>1590583280631</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Help function started">
+      <created>1590584042963</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1590584042963</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added copy constructor and overloaded=" />
     <MESSAGE value="Renamed the User class, added a new class and fixed destructor of linked list" />
     <MESSAGE value="Problems with static func in Enum class" />
     <MESSAGE value="ENUMS NOT WORKING !!!!" />
@@ -324,17 +330,18 @@
     <MESSAGE value="add_moderator added" />
     <MESSAGE value="backup" />
     <MESSAGE value="Exit condition added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Exit condition added" />
+    <MESSAGE value="Help function started" />
+    <option name="LAST_COMMIT_MESSAGE" value="Help function started" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590150953828">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590150953828" />
-    <state x="585" y="90" key="CommitChangelistDialog2" timestamp="1590583279760">
+    <state x="585" y="90" key="CommitChangelistDialog2" timestamp="1590584288386">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="90" key="CommitChangelistDialog2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590583279760" />
+    <state x="585" y="90" key="CommitChangelistDialog2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590584288386" />
     <state width="484" height="466" key="DebuggerActiveHint" timestamp="1590524036123">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -403,9 +410,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590518564649" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1590503761609">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1590584127291">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590503761609" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590584127291" />
   </component>
 </project>

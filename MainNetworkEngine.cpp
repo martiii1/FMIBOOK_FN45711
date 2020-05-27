@@ -27,18 +27,16 @@ void MainNetworkEngine::commandCaller(const char *commandLineText)
     char *tempCommandLine = new char[strlen(commandLineText) + 1];
     strcpy(tempCommandLine,commandLineText);
 
-    char *token = strtok(tempCommandLine, " "); // This takes the name out of a correct input
+    char *token = strtok(tempCommandLine, " "); // This takes the first word (name or a one word command)
     if (token == nullptr)
     {
         delete [] tempCommandLine;
         throw std::invalid_argument("Unexpected input! Try again. \n");
     }
-
-    if(strcmp(token, "exit") == 0 || (strcmp(token, "Exit") == 0))
-        throw std::exception("Exit");
+    firstWordCommands(token);
 
 
-    token = strtok(nullptr, " "); // This takes the action out of a correct input
+    token = strtok(nullptr, " "); // This takes the second word (most likely an action)
     if (token == nullptr)
     {
         delete[] tempCommandLine;
@@ -464,4 +462,13 @@ void MainNetworkEngine::help()
 
     std::cout << "[name1] remove_user [name2] - Removes the user with username [name2] and deletes all posts made by the user, \n";
     std::cout << "to remove a user [name1] has to be the Admin.\n \n";
+}
+
+void MainNetworkEngine::firstWordCommands(const char *commandText)
+{
+    if(strcmp(commandText, "Help") == 0 || strcmp(commandText, "help") == 0)
+    {
+        help();
+    }
+
 }

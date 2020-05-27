@@ -22,6 +22,8 @@ private:
 
     void postCommandCaller(const char *commandLineText);
 
+    void firstWordCommands(const char* commandText);
+
     void permissionChecker(UserTiers::Tier actorTier, const char *action);
 
     void usernameAvailabilityChecker(const char *username);
