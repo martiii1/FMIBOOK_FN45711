@@ -7,5 +7,7 @@ int main()
 
     test1.start();
 
+    std::cout << "Program closed! \n";
+
     return 0;
 }

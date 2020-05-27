@@ -16,6 +16,8 @@ private:
 
     void inputParser(const char *commandLine);
 
+    bool checkForExit(const char *text);
+
     void commandCaller(const char *commandLineText);
 
     void postCommandCaller(const char *commandLineText);

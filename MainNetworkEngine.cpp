@@ -34,6 +34,10 @@ void MainNetworkEngine::commandCaller(const char *commandLineText)
         throw std::invalid_argument("Unexpected input! Try again. \n");
     }
 
+    if(strcmp(token, "exit") == 0 || (strcmp(token, "Exit") == 0))
+        throw std::exception("Exit");
+
+
     token = strtok(nullptr, " "); // This takes the action out of a correct input
     if (token == nullptr)
     {
@@ -300,7 +304,10 @@ void MainNetworkEngine::start()
         std::cin.getline(tempCommandBuffer, 1000);
         try
         {
-            inputParser(tempCommandBuffer);
+            if(checkForExit(tempCommandBuffer))
+                break;
+            else
+                inputParser(tempCommandBuffer);
         }
         catch (std::exception &e)
         {
@@ -422,4 +429,23 @@ void MainNetworkEngine::add_moderator(const char *commandLineText)
     delete [] tempActor;
     delete [] tempSubject;
 
+}
+
+bool MainNetworkEngine::checkForExit(const char *text)
+{
+    char *tempTxt = new char[strlen(text) + 1];
+    strcpy(tempTxt,text);
+
+    char *token = strtok(tempTxt, " ");
+
+    if(strcmp(token, "Exit") == 0 || strcmp(token, "exit") == 0)
+    {
+        delete [] tempTxt;
+        return true;
+    }
+    else
+    {
+        delete [] tempTxt;
+        return false;
+    }
 }
