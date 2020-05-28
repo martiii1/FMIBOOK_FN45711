@@ -19,6 +19,8 @@ public:
 
     void createNewPost(const Post &newPost);
 
+    void removePost(unsigned int postNumber);
+
 
 private:
     Post *fAllPosts;

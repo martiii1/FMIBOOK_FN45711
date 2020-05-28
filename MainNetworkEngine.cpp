@@ -66,9 +66,17 @@ void MainNetworkEngine::commandCaller(const char *commandLineText)
         {
             remove_user(commandLineText);
         }
+        else if (strcmp(token, "remove_post") == 0)
+        {
+            remove_post(commandLineText);
+        }
         else if (strcmp(token, "post") == 0)
         {
             post(commandLineText);
+        }
+        else
+        {
+            throw std::invalid_argument("Unexpected input, try again. \n");
         }
     }
     catch (...)
@@ -272,6 +280,7 @@ void MainNetworkEngine::remove_user(const char *commandLineText)
     try
     {
         permissionChecker(tempActorTier, tempAction);
+        fUsers.removeUser(tempSubject);
     }
     catch (...)
     {
@@ -282,7 +291,7 @@ void MainNetworkEngine::remove_user(const char *commandLineText)
         throw;
     }
 
-    fUsers.removeUser(tempSubject);
+
 
     delete [] tempCommandLine;
     delete [] tempActor;
@@ -575,6 +584,51 @@ void MainNetworkEngine::post(const char *commandLineText)
     delete [] tempActor;
     delete [] tempPostType;
 
+
+}
+
+void MainNetworkEngine::remove_post(const char *commandLineText)
+{
+    char *tempCommandLine = new char[strlen(commandLineText) + 1];
+    strcpy(tempCommandLine,commandLineText);
+
+    const char *tempAction = "remove_post";
+    char *tempActor;
+    char *tempSubject;
+
+    char *token = strtok(tempCommandLine, " "); // This takes the name out of a correct input
+
+    // Actor username
+    tempActor = new char[strlen(token) + 1];
+    strcpy(tempActor,token);
+
+    // Skip action
+    token = strtok(nullptr, " ");
+
+    // Removed post number
+    token = strtok(nullptr, " ");
+    unsigned int tempNum = atoi(token);
+
+    UserTiers::Tier tempActorTier = fUsers.getTierFromUsername(tempActor);
+    try
+    {
+        permissionChecker(tempActorTier, tempAction);
+        fPosts.removePost(tempNum);
+    }
+    catch (...)
+    {
+        delete [] tempCommandLine;
+        delete [] tempActor;
+        delete [] tempSubject;
+
+        throw;
+    }
+
+
+
+    delete [] tempCommandLine;
+    delete [] tempActor;
+    delete [] tempSubject;
 
 }
 

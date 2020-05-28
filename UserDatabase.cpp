@@ -110,7 +110,7 @@ void UserDatabase::removeUser(const char *username)
 
     size_t counter = 0;
     size_t counterNew = 0;
-    size_t counterOld= 0;
+    size_t counterOld = 0;
 
     while (counter < fSize)
     {
@@ -128,9 +128,18 @@ void UserDatabase::removeUser(const char *username)
         counter++;
     }
 
-    delete [] fAllUsers;
-    fAllUsers = fTempUsers;
-    fSize--;
+    if (counterNew < counterOld)
+    {
+        delete[] fAllUsers;
+        fAllUsers = fTempUsers;
+        fSize--;
+    }
+    else
+    {
+        delete[] fTempUsers;
+        throw std::exception("The user wasn't found and wasn't deleted, check if you entered the correct username. \n");
+    }
+
 }
 
 unsigned int UserDatabase::getSize()
@@ -140,9 +149,9 @@ unsigned int UserDatabase::getSize()
 
 bool UserDatabase::doesUsernameExist(const char *username)
 {
-    for (int i = 0;i < fSize ; i++)
+    for (int i = 0; i < fSize; i++)
     {
-        if(strcmp(fAllUsers[i].getUsername(), username) == 0)
+        if (strcmp(fAllUsers[i].getUsername(), username) == 0)
         {
             return true;
         }

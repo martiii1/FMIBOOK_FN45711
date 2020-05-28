@@ -53,7 +53,7 @@ void PostsDatabase::printAllPosts()
     for (int i = 0; i < fSize; i++)
     {
         std::cout << "Post #" << fAllPosts[i].getPostNumber() << ", Type: " << fAllPosts[i].getPostType()
-        << ",  text: " << fAllPosts[i].getPostTxt() << std::endl;
+                  << ",  text: " << fAllPosts[i].getPostTxt() << std::endl;
     }
 
 }
@@ -91,14 +91,52 @@ PostsDatabase &PostsDatabase::operator=(const PostsDatabase &other)
 
 PostType::Type PostsDatabase::textToPostType(const char *text)
 {
-    if(strcmp(text, "[image]") == 0)
+    if (strcmp(text, "[image]") == 0)
         return PostType::Type::Image;
 
-    if(strcmp(text, "[text]") == 0)
+    if (strcmp(text, "[text]") == 0)
         return PostType::Type::Text;
 
-    if(strcmp(text, "[url]") == 0)
+    if (strcmp(text, "[url]") == 0)
         return PostType::Type::Link;
 
     throw std::invalid_argument("Unsupported post type! \n");
+}
+
+void PostsDatabase::removePost(unsigned int postNumber)
+{
+    Post *fTempPosts = new Post[fCapacity];
+
+    size_t counter = 0;
+    size_t counterNew = 0;
+    size_t counterOld = 0;
+
+    while (counter < fSize)
+    {
+        if (fAllPosts[counterOld].getPostNumber() == postNumber)
+        {
+            std::cout << fAllPosts[counterOld].getPostNumber() << " was removed. \n";
+            counterOld++;
+            counter++;
+            continue;
+        }
+
+        fTempPosts[counterNew] = fAllPosts[counterOld];
+        counterOld++;
+        counterNew++;
+        counter++;
+    }
+
+    if (counterNew < counterOld)
+    {
+        delete[] fAllPosts;
+        fAllPosts = fTempPosts;
+        fSize--;
+    }
+    else
+    {
+        delete[] fTempPosts;
+        throw std::exception("The post wasn't found and wasn't deleted, check if you entered the correct number. \n");
+    }
+
 }
