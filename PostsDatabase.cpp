@@ -53,7 +53,7 @@ void PostsDatabase::printAllPosts()
     for (int i = 0; i < fSize; i++)
     {
         std::cout << "Post #" << fAllPosts[i].getPostNumber() << ", Type: " << fAllPosts[i].getPostType()
-        << ",  text: " << fAllPosts->getPostTxt() << std::endl;
+        << ",  text: " << fAllPosts[i].getPostTxt() << std::endl;
     }
 
 }

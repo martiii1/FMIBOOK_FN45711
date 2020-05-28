@@ -518,7 +518,6 @@ void MainNetworkEngine::post(const char *commandLineText)
         throw;
     }
 
-    // somehow get the remaining text ( add funcion )
 
     UserTiers::Tier tempActorTier = fUsers.getTierFromUsername(tempActor);
     try
@@ -534,12 +533,44 @@ void MainNetworkEngine::post(const char *commandLineText)
         throw;
     }
 
+    // Get the actual post
+    token = strtok(nullptr, " ");
+    if(token == nullptr)
+    {
+        delete [] tempCommandLine;
+        delete [] tempActor;
+        delete [] tempPostType;
+
+        throw std::invalid_argument("Unexpected input! Try again. \n");
+    }
+
+    char *tempPostText = new char[strlen(token) + 1];
+    char *tempBuffer = nullptr;
+    strcpy(tempPostText,token);
+
+    while (token != nullptr)
+    {
+        token = strtok(nullptr, " ");
+        if(token == nullptr)
+            continue;
+
+        delete [] tempBuffer;
+        tempBuffer = new char[strlen(tempPostText) + 1];
+        strcpy(tempBuffer,tempPostText);
+
+        delete [] tempPostText;
+        tempPostText = new char[strlen(tempBuffer) + strlen(token) + 1];
+
+    }
+    delete [] tempBuffer;
+
     Post tempPost;
-    tempPost.createPost(tempActor,tempType,"POST POST POST");
+    tempPost.createPost(tempActor,tempType,tempPostText);
 
     fPosts.createNewPost(tempPost);
-    std::cout << "Post created \n";
 
+
+    delete [] tempPostText;
     delete [] tempCommandLine;
     delete [] tempActor;
     delete [] tempPostType;

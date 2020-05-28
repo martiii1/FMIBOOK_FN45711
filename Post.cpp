@@ -21,6 +21,8 @@ void Post::createPost(const char *usernameOfPoster, PostType::Type postType, con
 
     fPostNumber = fPostUniqueNumber;
 
+    std::cout << "Post" << " #" << fPostUniqueNumber << " was created \n";
+
     fPostUniqueNumber++;
 }
 
@@ -73,4 +75,33 @@ PostType::Type Post::getPostType()
 unsigned int Post::getPostNumber()
 {
     return fPostNumber;
+}
+
+void Post::displayPostText()
+{
+    std::cout << fPost;
+
+}
+
+Post &Post::operator=(const Post &other)
+{
+    if(this != &other)
+    {
+        delMem();
+        copyPost(other);
+    }
+    else
+        return *this;
+}
+
+void Post::copyPost(const Post &other)
+{
+    fPostUsername = new char[strlen(other.fPostUsername) + 1];
+    strcpy(fPostUsername,other.fPostUsername);
+
+    fPost = new char[strlen(other.fPost)];
+    strcpy(fPost, other.fPost);
+
+    fPostNumber = other.fPostNumber;
+    fType = other.fType;
 }

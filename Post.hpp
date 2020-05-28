@@ -13,9 +13,13 @@ public:
 
     unsigned int getPostNumber();
 
+    Post &operator=(const Post& other);
+
     PostType::Type getPostType();
 
-    const char* getPostTxt();
+    const char *getPostTxt();
+
+    void displayPostText();
 
 private:
     char *fPostUsername;
@@ -23,6 +27,8 @@ private:
     PostType::Type fType;
     char *fPost;
     static unsigned int fPostUniqueNumber;
+
+    void copyPost(const Post& other);
 
     void delMem();
 
