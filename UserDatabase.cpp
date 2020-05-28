@@ -130,7 +130,7 @@ void UserDatabase::removeUser(const char *username)
 
     if (counterNew < counterOld)
     {
-        delete[] fAllUsers;
+        delete[] fAllUsers; // TODO
         fAllUsers = fTempUsers;
         fSize--;
     }

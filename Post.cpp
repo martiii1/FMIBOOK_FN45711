@@ -41,9 +41,9 @@ Post::~Post()
 void Post::emptyPost()
 {
     fPostUsername = nullptr;
+    fPost = nullptr;
     fPostNumber = 0;
     fType = PostType::Type::Nothing;
-    fPost = nullptr;
 }
 
 void Post::setTypeFromStr(const char *type)
@@ -104,4 +104,9 @@ void Post::copyPost(const Post &other)
 
     fPostNumber = other.fPostNumber;
     fType = other.fType;
+}
+
+Post::Post(const Post &other)
+{
+    copyPost(other);
 }

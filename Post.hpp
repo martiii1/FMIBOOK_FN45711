@@ -13,7 +13,9 @@ public:
 
     unsigned int getPostNumber();
 
-    Post &operator=(const Post& other);
+    Post &operator=(const Post &other);
+
+    Post(const Post &other);
 
     PostType::Type getPostType();
 
@@ -28,7 +30,7 @@ private:
     char *fPost;
     static unsigned int fPostUniqueNumber;
 
-    void copyPost(const Post& other);
+    void copyPost(const Post &other);
 
     void delMem();
 

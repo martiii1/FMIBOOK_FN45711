@@ -5,7 +5,6 @@ PostsDatabase::PostsDatabase()
 {
     fAllPosts = allocatePostDatabase(10);
     fSize = 0;
-    fCapacity = 5;
 
 }
 
@@ -126,6 +125,7 @@ void PostsDatabase::removePost(unsigned int postNumber)
         counterNew++;
         counter++;
     }
+
 
     if (counterNew < counterOld)
     {

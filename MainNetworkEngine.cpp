@@ -568,7 +568,10 @@ void MainNetworkEngine::post(const char *commandLineText)
         strcpy(tempBuffer,tempPostText);
 
         delete [] tempPostText;
-        tempPostText = new char[strlen(tempBuffer) + strlen(token) + 1];
+        tempPostText = new char[strlen(tempBuffer) + strlen(token) + 2]; // for \0 and for the space between words
+        strcpy(tempPostText, tempBuffer);
+        strcat(tempPostText, " ");
+        strcat(tempPostText, token);
 
     }
     delete [] tempBuffer;
@@ -583,8 +586,6 @@ void MainNetworkEngine::post(const char *commandLineText)
     delete [] tempCommandLine;
     delete [] tempActor;
     delete [] tempPostType;
-
-
 }
 
 void MainNetworkEngine::remove_post(const char *commandLineText)
@@ -594,7 +595,6 @@ void MainNetworkEngine::remove_post(const char *commandLineText)
 
     const char *tempAction = "remove_post";
     char *tempActor;
-    char *tempSubject;
 
     char *token = strtok(tempCommandLine, " "); // This takes the name out of a correct input
 
@@ -619,7 +619,6 @@ void MainNetworkEngine::remove_post(const char *commandLineText)
     {
         delete [] tempCommandLine;
         delete [] tempActor;
-        delete [] tempSubject;
 
         throw;
     }
@@ -628,7 +627,6 @@ void MainNetworkEngine::remove_post(const char *commandLineText)
 
     delete [] tempCommandLine;
     delete [] tempActor;
-    delete [] tempSubject;
 
 }
 
