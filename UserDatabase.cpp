@@ -77,6 +77,9 @@ void UserDatabase::addUser(const UserData &newUser)
         resizeAllUsers(fCapacity * 2);
 
     fAllUsers[fSize] = newUser;
+
+    std::cout << newUser.getUsername() << " was created. \n";
+
     fSize++;
 
 }
@@ -104,20 +107,25 @@ UserTiers::Tier UserDatabase::getTierFromUsername(const char *username)
 void UserDatabase::removeUser(const char *username)
 {
     UserData *fTempUsers = new UserData[fCapacity];
+
+    size_t counter = 0;
     size_t counterNew = 0;
     size_t counterOld= 0;
 
-    while (counterNew < fSize - 1)
+    while (counter < fSize)
     {
         if (strcmp(username, fAllUsers[counterOld].getUsername()) == 0)
         {
+            std::cout << fAllUsers[counterOld].getUsername() << " was removed. \n";
             counterOld++;
+            counter++;
             continue;
         }
 
         fTempUsers[counterNew] = fAllUsers[counterOld];
         counterOld++;
         counterNew++;
+        counter++;
     }
 
     delete [] fAllUsers;

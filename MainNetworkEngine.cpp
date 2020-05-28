@@ -254,7 +254,7 @@ void MainNetworkEngine::remove_user(const char *commandLineText)
     // Skip action
     token = strtok(nullptr, " ");
 
-    // New username
+    // Removed user username
     token = strtok(nullptr, " ");
     if(token == nullptr)
     {
