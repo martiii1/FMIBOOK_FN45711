@@ -11,12 +11,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f4f5121-6fba-48b9-848d-25df4d2cdca3" name="Default Changelist" comment="added some comments and minor changes">
+    <list default="true" id="5f4f5121-6fba-48b9-848d-25df4d2cdca3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainNetworkEngine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MainNetworkEngine.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MainNetworkEngine.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/MainNetworkEngine.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserDatabase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/UserDatabase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserDatabase.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/UserDatabase.hpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +75,7 @@
       <workItem from="1590581712962" duration="12733000" />
       <workItem from="1590666877000" duration="9956000" />
       <workItem from="1590737600919" duration="3000" />
-      <workItem from="1590836865263" duration="8063000" />
+      <workItem from="1590836865263" duration="8153000" />
     </task>
     <task id="LOCAL-00001" summary="Basic classes added">
       <created>1589983112436</created>
@@ -374,14 +371,20 @@
       <option name="project" value="LOCAL" />
       <updated>1590849446397</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="change username added">
+      <created>1590849817309</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1590849817309</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="User database class added" />
     <MESSAGE value="Added big 4" />
     <MESSAGE value="Start of input processing" />
     <MESSAGE value="new class" />
@@ -406,17 +409,18 @@
     <MESSAGE value="added more html file creator functions" />
     <MESSAGE value="remove_user deletes all posts made by the user" />
     <MESSAGE value="added some comments and minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="added some comments and minor changes" />
+    <MESSAGE value="change username added" />
+    <option name="LAST_COMMIT_MESSAGE" value="change username added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590150953828">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590150953828" />
-    <state x="585" y="90" key="CommitChangelistDialog2" timestamp="1590849449071">
+    <state x="585" y="90" key="CommitChangelistDialog2" timestamp="1590849816649">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="90" key="CommitChangelistDialog2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590849449071" />
+    <state x="585" y="90" key="CommitChangelistDialog2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590849816649" />
     <state width="487" height="466" key="DebuggerActiveHint" timestamp="1590675161389">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -88,7 +88,7 @@ void MainNetworkEngine::commandCaller(const char *commandLineText)
         }
         else if (strcmp(token, "rename") == 0)
         {
-            rename_user()
+            rename_user(commandLineText);
         }
         else
         {
@@ -852,7 +852,7 @@ void MainNetworkEngine::rename_user(const char *commandLineText)
 
     fUsers.changeUsername(tempActor,tempSubject);
 
-    std::cout << tempSubject << " was blocked! \n";
+    std::cout << tempActor << " was renamed to: " << tempSubject << std::endl;
 
     delete[] tempCommandLine;
     delete[] tempActor;
