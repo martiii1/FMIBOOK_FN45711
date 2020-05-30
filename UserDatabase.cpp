@@ -175,3 +175,21 @@ void UserDatabase::blockUser(const char *username)
     if(!userFound)
         throw std::exception("User not found! \n");
 }
+
+void UserDatabase::changeUsername(const char *oldUsername, const char *newUsername)
+{
+
+    bool userFound = false;
+
+    for (int i = 0; i < fSize; i++)
+    {
+        if (strcmp(fAllUsers[i].getUsername(), oldUsername) == 0)
+        {
+            userFound = true;
+            fAllUsers[i].setUsername(newUsername);
+        }
+    }
+
+    if(!userFound)
+        throw std::exception("User not found! \n");
+}

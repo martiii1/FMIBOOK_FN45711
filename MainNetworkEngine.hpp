@@ -48,5 +48,7 @@ private:
 
     void block_user(const char *commandLineText);
 
+    void rename_user(const char *commandLineText);
+
     void help();
 };

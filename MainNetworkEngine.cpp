@@ -86,6 +86,10 @@ void MainNetworkEngine::commandCaller(const char *commandLineText)
         {
             block_user(commandLineText);
         }
+        else if (strcmp(token, "rename") == 0)
+        {
+            rename_user()
+        }
         else
         {
             throw std::invalid_argument("Unexpected input, try again. \n");
@@ -175,7 +179,7 @@ void MainNetworkEngine::permissionChecker(UserTiers::Tier actorTier, const char 
         return;
     }
 
-    if (strcmp(action, "change_username") == 0)
+    if (strcmp(action, "rename_user") == 0)
     {
         if (actorTier <= UserTiers::Tier::Banned_user)
             throw std::exception("You do not have permission to do that! \n");
@@ -793,6 +797,67 @@ void MainNetworkEngine::block_user(const char *commandLineText)
     delete[] tempCommandLine;
     delete[] tempActor;
     delete[] tempSubject;
+
+}
+
+void MainNetworkEngine::rename_user(const char *commandLineText)
+{
+    char *tempCommandLine = new char[strlen(commandLineText) + 1];
+    strcpy(tempCommandLine, commandLineText);
+
+    const char *tempAction = "rename_user";
+    char *tempActor;
+    char *tempSubject;
+    int tempAge = -1;
+
+    char *token = strtok(tempCommandLine, " "); // This takes the name out of a correct input
+
+    // Actor username
+    tempActor = new char[strlen(token) + 1];
+    strcpy(tempActor, token);
+
+    // Skip action
+    token = strtok(nullptr, " ");
+
+    // New username
+    token = strtok(nullptr, " ");
+    if (token == nullptr)
+    {
+        delete[] tempCommandLine;
+        delete[] tempActor;
+
+        throw std::invalid_argument("Unexpected input! Try again. \n");
+    }
+
+    tempSubject = new char[strlen(token) + 1];
+    strcpy(tempSubject, token);
+
+
+    UserTiers::Tier tempActorTier = fUsers.getTierFromUsername(tempActor);
+
+
+    try
+    {
+        permissionChecker(tempActorTier, tempAction);
+        usernameAvailabilityChecker(tempSubject);
+    }
+    catch (...)
+    {
+        delete[] tempCommandLine;
+        delete[] tempActor;
+        delete[] tempSubject;
+
+        throw;
+    }
+
+    fUsers.changeUsername(tempActor,tempSubject);
+
+    std::cout << tempSubject << " was blocked! \n";
+
+    delete[] tempCommandLine;
+    delete[] tempActor;
+    delete[] tempSubject;
+
 
 }
 

@@ -29,6 +29,8 @@ public:
 
     void blockUser(const char* username);
 
+    void changeUsername(const char* oldUsername, const char *newUsername);
+
 private:
     UserData *fAllUsers;
     unsigned int fCapacity;
