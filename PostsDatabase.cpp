@@ -166,7 +166,7 @@ void PostsDatabase::generatePostHtml(unsigned int postNumber)
         }
     }
 
-    if(!foundPost)
+    if (!foundPost)
     {
         file.close();
         delete[] tempBuffer;
@@ -181,4 +181,32 @@ void PostsDatabase::generatePostHtml(unsigned int postNumber)
 
     delete[] tempBuffer;
     delete[] filename;
+}
+
+void PostsDatabase::getAllPostsHtml()
+{
+    const char *filename = "AllPosts.html";
+
+    std::ofstream file(filename);
+
+    for (int i = 0; i < fSize; i++)
+    {
+        if (!file.is_open())
+            throw std::exception("Unknown error has occurred! \n");
+
+        fAllPosts[i].writePostToFile(file);
+        file << std::endl << std::endl;
+
+    }
+
+    file.close();
+
+    std::cout << "Html file containing all available posts was created. \n";
+
+}
+
+void PostsDatabase::getAllPostsHtmlByUser(const char *username)
+{
+
+
 }

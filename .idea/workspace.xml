@@ -15,8 +15,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainNetworkEngine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MainNetworkEngine.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainNetworkEngine.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/MainNetworkEngine.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Post.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Post.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Post.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Post.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PostsDatabase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PostsDatabase.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PostsDatabase.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/PostsDatabase.hpp" afterDir="false" />
     </list>
@@ -80,7 +78,7 @@
       <workItem from="1590581712962" duration="12733000" />
       <workItem from="1590666877000" duration="9956000" />
       <workItem from="1590737600919" duration="3000" />
-      <workItem from="1590836865263" duration="4360000" />
+      <workItem from="1590836865263" duration="5896000" />
     </task>
     <task id="LOCAL-00001" summary="Basic classes added">
       <created>1589983112436</created>
@@ -348,14 +346,20 @@
       <option name="project" value="LOCAL" />
       <updated>1590686616834</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="added html file creator functions">
+      <created>1590846123413</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1590846123413</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="still not working&#10;added a constructor" />
     <MESSAGE value="Maybe fixed" />
     <MESSAGE value="test" />
     <MESSAGE value="deleting linked user" />
@@ -380,17 +384,18 @@
     <MESSAGE value="remove_user fix" />
     <MESSAGE value="some exceptions added to remove_post and remove_user" />
     <MESSAGE value="fixes in Post" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixes in Post" />
+    <MESSAGE value="added html file creator functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="added html file creator functions" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590150953828">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590150953828" />
-    <state x="585" y="90" key="CommitChangelistDialog2" timestamp="1590686614704">
+    <state x="585" y="90" key="CommitChangelistDialog2" timestamp="1590846122506">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="90" key="CommitChangelistDialog2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590686614704" />
+    <state x="585" y="90" key="CommitChangelistDialog2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590846122506" />
     <state width="487" height="466" key="DebuggerActiveHint" timestamp="1590675161389">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -439,10 +444,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="278" key="GridCell.Tab.1.right/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590838110902" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1590686699511">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1590846127664">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590686699511" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590846127664" />
     <state x="769" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590004952692">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -463,16 +468,5 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590584127291" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/MainNetworkEngine.cpp</url>
-          <line>499</line>
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

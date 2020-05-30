@@ -6,7 +6,7 @@
 void MainNetworkEngine::inputParser(const char *commandLine)
 {
     char *tempCommandLine = new char[strlen(commandLine) + 1];
-    strcpy(tempCommandLine,commandLine);
+    strcpy(tempCommandLine, commandLine);
 
     try
     {
@@ -14,23 +14,23 @@ void MainNetworkEngine::inputParser(const char *commandLine)
     }
     catch (...)
     {
-        delete [] tempCommandLine;
+        delete[] tempCommandLine;
         throw;
     }
 
-    delete [] tempCommandLine;
+    delete[] tempCommandLine;
 
 }
 
 void MainNetworkEngine::commandCaller(const char *commandLineText)
 {
     char *tempCommandLine = new char[strlen(commandLineText) + 1];
-    strcpy(tempCommandLine,commandLineText);
+    strcpy(tempCommandLine, commandLineText);
 
     char *token = strtok(tempCommandLine, " "); // This takes the first word (name or a one word command).
     if (token == nullptr)
     {
-        delete [] tempCommandLine;
+        delete[] tempCommandLine;
         throw std::invalid_argument("Unexpected input! Try again. \n");
     }
 
@@ -78,6 +78,10 @@ void MainNetworkEngine::commandCaller(const char *commandLineText)
         {
             view_post(commandLineText);
         }
+        else if (strcmp(token, "view_all_posts") == 0)
+        {
+            view_all_posts(commandLineText);
+        }
         else
         {
             throw std::invalid_argument("Unexpected input, try again. \n");
@@ -85,11 +89,11 @@ void MainNetworkEngine::commandCaller(const char *commandLineText)
     }
     catch (...)
     {
-        delete [] tempCommandLine;
+        delete[] tempCommandLine;
         throw;
     }
 
-    delete [] tempCommandLine;
+    delete[] tempCommandLine;
 }
 
 void MainNetworkEngine::permissionChecker(UserTiers::Tier actorTier, const char *action)
@@ -180,7 +184,7 @@ void MainNetworkEngine::permissionChecker(UserTiers::Tier actorTier, const char 
 void MainNetworkEngine::add_user(const char *commandLineText)
 {
     char *tempCommandLine = new char[strlen(commandLineText) + 1];
-    strcpy(tempCommandLine,commandLineText);
+    strcpy(tempCommandLine, commandLineText);
 
     const char *tempAction = "add_user";
     char *tempActor;
@@ -191,42 +195,42 @@ void MainNetworkEngine::add_user(const char *commandLineText)
 
     // Actor username
     tempActor = new char[strlen(token) + 1];
-    strcpy(tempActor,token);
+    strcpy(tempActor, token);
 
     // Skip action
     token = strtok(nullptr, " ");
 
     // New username
     token = strtok(nullptr, " ");
-    if(token == nullptr)
+    if (token == nullptr)
     {
-        delete [] tempCommandLine;
-        delete [] tempActor;
+        delete[] tempCommandLine;
+        delete[] tempActor;
 
         throw std::invalid_argument("Unexpected input! Try again. \n");
     }
 
     tempSubject = new char[strlen(token) + 1];
-    strcpy(tempSubject,token);
+    strcpy(tempSubject, token);
 
     // Age
     token = strtok(nullptr, " ");
-    if(token == nullptr)
+    if (token == nullptr)
     {
-        delete [] tempCommandLine;
-        delete [] tempActor;
-        delete [] tempSubject;
+        delete[] tempCommandLine;
+        delete[] tempActor;
+        delete[] tempSubject;
 
         throw std::invalid_argument("Unexpected input! Try again. \n");
     }
     tempAge = atoi(token);
 
     // Age check
-    if(tempAge <=0 || tempAge > 100)  // Somewhat random limit for the age for a fast check
+    if (tempAge <= 0 || tempAge > 100)  // Somewhat random limit for the age for a fast check
     {
-        delete [] tempCommandLine;
-        delete [] tempActor;
-        delete [] tempSubject;
+        delete[] tempCommandLine;
+        delete[] tempActor;
+        delete[] tempSubject;
 
         throw std::invalid_argument("Unexpected input! Try again. \n");
     }
@@ -241,9 +245,9 @@ void MainNetworkEngine::add_user(const char *commandLineText)
     }
     catch (...)
     {
-        delete [] tempCommandLine;
-        delete [] tempActor;
-        delete [] tempSubject;
+        delete[] tempCommandLine;
+        delete[] tempActor;
+        delete[] tempSubject;
 
         throw;
     }
@@ -251,15 +255,15 @@ void MainNetworkEngine::add_user(const char *commandLineText)
     UserData tempUser(tempSubject, UserTiers::Tier::Basic_User, tempAge);
     fUsers.addUser(tempUser);
 
-    delete [] tempCommandLine;
-    delete [] tempActor;
-    delete [] tempSubject;
+    delete[] tempCommandLine;
+    delete[] tempActor;
+    delete[] tempSubject;
 }
 
 void MainNetworkEngine::remove_user(const char *commandLineText)
 {
     char *tempCommandLine = new char[strlen(commandLineText) + 1];
-    strcpy(tempCommandLine,commandLineText);
+    strcpy(tempCommandLine, commandLineText);
 
     const char *tempAction = "remove_user";
     char *tempActor;
@@ -269,23 +273,23 @@ void MainNetworkEngine::remove_user(const char *commandLineText)
 
     // Actor username
     tempActor = new char[strlen(token) + 1];
-    strcpy(tempActor,token);
+    strcpy(tempActor, token);
 
     // Skip action
     token = strtok(nullptr, " ");
 
     // Removed user username
     token = strtok(nullptr, " ");
-    if(token == nullptr)
+    if (token == nullptr)
     {
-        delete [] tempCommandLine;
-        delete [] tempActor;
+        delete[] tempCommandLine;
+        delete[] tempActor;
 
         throw std::invalid_argument("Unexpected input! Try again. \n");
     }
 
     tempSubject = new char[strlen(token) + 1];
-    strcpy(tempSubject,token);
+    strcpy(tempSubject, token);
 
 
     UserTiers::Tier tempActorTier = fUsers.getTierFromUsername(tempActor);
@@ -296,18 +300,17 @@ void MainNetworkEngine::remove_user(const char *commandLineText)
     }
     catch (...)
     {
-        delete [] tempCommandLine;
-        delete [] tempActor;
-        delete [] tempSubject;
+        delete[] tempCommandLine;
+        delete[] tempActor;
+        delete[] tempSubject;
 
         throw;
     }
 
 
-
-    delete [] tempCommandLine;
-    delete [] tempActor;
-    delete [] tempSubject;
+    delete[] tempCommandLine;
+    delete[] tempActor;
+    delete[] tempSubject;
 }
 
 void MainNetworkEngine::start()
@@ -316,7 +319,7 @@ void MainNetworkEngine::start()
     std::cout << "Starting... \n";
     std::cout << "Please enter the admin username: ";
     std::cin.getline(tempCommandBuffer, 1000);
-    UserData tempAdmin(tempCommandBuffer,UserTiers::Tier::Admin,20);
+    UserData tempAdmin(tempCommandBuffer, UserTiers::Tier::Admin, 20);
     fUsers.addUser(tempAdmin);
 
     do
@@ -324,7 +327,7 @@ void MainNetworkEngine::start()
         std::cin.getline(tempCommandBuffer, 1000);
         try
         {
-            if(checkForExit(tempCommandBuffer))
+            if (checkForExit(tempCommandBuffer))
                 break;
             else
                 inputParser(tempCommandBuffer);
@@ -354,7 +357,7 @@ void MainNetworkEngine::show_users()
 
 void MainNetworkEngine::usernameAvailabilityChecker(const char *username)
 {
-    if(fUsers.doesUsernameExist(username))
+    if (fUsers.doesUsernameExist(username))
     {
         throw std::exception("Username is already used! \n");
     }
@@ -374,7 +377,7 @@ void MainNetworkEngine::postCommandCaller(const char *commandLineText)
 void MainNetworkEngine::add_moderator(const char *commandLineText)
 {
     char *tempCommandLine = new char[strlen(commandLineText) + 1];
-    strcpy(tempCommandLine,commandLineText);
+    strcpy(tempCommandLine, commandLineText);
 
     const char *tempAction = "add_moderator";
     char *tempActor;
@@ -385,42 +388,42 @@ void MainNetworkEngine::add_moderator(const char *commandLineText)
 
     // Actor username
     tempActor = new char[strlen(token) + 1];
-    strcpy(tempActor,token);
+    strcpy(tempActor, token);
 
     // Skip action
     token = strtok(nullptr, " ");
 
     // New username
     token = strtok(nullptr, " ");
-    if(token == nullptr)
+    if (token == nullptr)
     {
-        delete [] tempCommandLine;
-        delete [] tempActor;
+        delete[] tempCommandLine;
+        delete[] tempActor;
 
         throw std::invalid_argument("Unexpected input! Try again. \n");
     }
 
     tempSubject = new char[strlen(token) + 1];
-    strcpy(tempSubject,token);
+    strcpy(tempSubject, token);
 
     // Age
     token = strtok(nullptr, " ");
-    if(token == nullptr)
+    if (token == nullptr)
     {
-        delete [] tempCommandLine;
-        delete [] tempActor;
-        delete [] tempSubject;
+        delete[] tempCommandLine;
+        delete[] tempActor;
+        delete[] tempSubject;
 
         throw std::invalid_argument("Unexpected input! Try again. \n");
     }
     tempAge = atoi(token);
 
     // Age check
-    if(tempAge <=0 || tempAge > 100)  // Somewhat random limit for the age for a fast check
+    if (tempAge <= 0 || tempAge > 100)  // Somewhat random limit for the age for a fast check
     {
-        delete [] tempCommandLine;
-        delete [] tempActor;
-        delete [] tempSubject;
+        delete[] tempCommandLine;
+        delete[] tempActor;
+        delete[] tempSubject;
 
         throw std::invalid_argument("Unexpected input! Try again. \n");
     }
@@ -435,9 +438,9 @@ void MainNetworkEngine::add_moderator(const char *commandLineText)
     }
     catch (...)
     {
-        delete [] tempCommandLine;
-        delete [] tempActor;
-        delete [] tempSubject;
+        delete[] tempCommandLine;
+        delete[] tempActor;
+        delete[] tempSubject;
 
         throw;
     }
@@ -445,27 +448,27 @@ void MainNetworkEngine::add_moderator(const char *commandLineText)
     UserData tempUser(tempSubject, UserTiers::Tier::Moderator, tempAge);
     fUsers.addUser(tempUser);
 
-    delete [] tempCommandLine;
-    delete [] tempActor;
-    delete [] tempSubject;
+    delete[] tempCommandLine;
+    delete[] tempActor;
+    delete[] tempSubject;
 
 }
 
 bool MainNetworkEngine::checkForExit(const char *text)
 {
     char *tempTxt = new char[strlen(text) + 1];
-    strcpy(tempTxt,text);
+    strcpy(tempTxt, text);
 
     char *token = strtok(tempTxt, " ");
 
-    if(strcmp(token, "Exit") == 0 || strcmp(token, "exit") == 0)
+    if (strcmp(token, "Exit") == 0 || strcmp(token, "exit") == 0)
     {
-        delete [] tempTxt;
+        delete[] tempTxt;
         return true;
     }
     else
     {
-        delete [] tempTxt;
+        delete[] tempTxt;
         return false;
     }
 }
@@ -474,7 +477,9 @@ void MainNetworkEngine::help()
 {
     std::cout << "[name] display_users - prints all registered users, their rank(the enum number) and their age. \n \n";
 
-    std::cout << "[name] display_posts - prints the raw data from all available posts (for testing purposes). \n \n";
+    std::cout << "[name] view_post [number] - Generates an html file with the post that is specified.  \n \n";
+
+    std::cout << "[name] view_all_posts - Generates an html file with all the posts. \n \n";
 
     std::cout << "[name1] add_user [name2] [age] - Adds a new basic user with username [name2] and age [age], \n";
     std::cout << "to add a user [name1] has to be the Admin and [name2] has to be an unused username. \n \n";
@@ -482,13 +487,14 @@ void MainNetworkEngine::help()
     std::cout << "[name1] add_moderator [name2] [age] - Adds a new moderator user with name [name2] and age [age], \n";
     std::cout << "to add a moderator [name1] has to be the Admin and [name2] has to be an unused username. \n \n";
 
-    std::cout << "[name1] remove_user [name2] - Removes the user with username [name2] and deletes all posts made by the user, \n";
+    std::cout
+            << "[name1] remove_user [name2] - Removes the user with username [name2] and deletes all posts made by the user, \n";
     std::cout << "to remove a user [name1] has to be the Admin.\n \n";
 }
 
 void MainNetworkEngine::firstWordCommands(const char *commandText)
 {
-    if(strcmp(commandText, "Help") == 0 || strcmp(commandText, "help") == 0)
+    if (strcmp(commandText, "Help") == 0 || strcmp(commandText, "help") == 0)
     {
         help();
     }
@@ -498,7 +504,7 @@ void MainNetworkEngine::firstWordCommands(const char *commandText)
 void MainNetworkEngine::post(const char *commandLineText)
 {
     char *tempCommandLine = new char[strlen(commandLineText) + 1];
-    strcpy(tempCommandLine,commandLineText);
+    strcpy(tempCommandLine, commandLineText);
 
     const char *tempAction = "post";
     char *tempActor;
@@ -508,17 +514,17 @@ void MainNetworkEngine::post(const char *commandLineText)
 
     // Actor username
     tempActor = new char[strlen(token) + 1];
-    strcpy(tempActor,token);
+    strcpy(tempActor, token);
 
     // Skip action
     token = strtok(nullptr, " ");
 
     // The type of post( [image], [link] or [text] ).
     token = strtok(nullptr, " ");
-    if(token == nullptr)
+    if (token == nullptr)
     {
-        delete [] tempCommandLine;
-        delete [] tempActor;
+        delete[] tempCommandLine;
+        delete[] tempActor;
 
         throw std::invalid_argument("Unexpected input! Try again. \n");
     }
@@ -533,9 +539,9 @@ void MainNetworkEngine::post(const char *commandLineText)
     }
     catch (...)
     {
-        delete [] tempCommandLine;
-        delete [] tempActor;
-        delete [] tempPostType;
+        delete[] tempCommandLine;
+        delete[] tempActor;
+        delete[] tempPostType;
         throw;
     }
 
@@ -547,63 +553,63 @@ void MainNetworkEngine::post(const char *commandLineText)
     }
     catch (...)
     {
-        delete [] tempCommandLine;
-        delete [] tempActor;
-        delete [] tempPostType;
+        delete[] tempCommandLine;
+        delete[] tempActor;
+        delete[] tempPostType;
 
         throw;
     }
 
     // Get the actual post
     token = strtok(nullptr, " ");
-    if(token == nullptr)
+    if (token == nullptr)
     {
-        delete [] tempCommandLine;
-        delete [] tempActor;
-        delete [] tempPostType;
+        delete[] tempCommandLine;
+        delete[] tempActor;
+        delete[] tempPostType;
 
         throw std::invalid_argument("Unexpected input! Try again. \n");
     }
 
     char *tempPostText = new char[strlen(token) + 1];
     char *tempBuffer = nullptr;
-    strcpy(tempPostText,token);
+    strcpy(tempPostText, token);
 
     while (token != nullptr)
     {
         token = strtok(nullptr, " ");
-        if(token == nullptr)
+        if (token == nullptr)
             continue;
 
-        delete [] tempBuffer;
+        delete[] tempBuffer;
         tempBuffer = new char[strlen(tempPostText) + 1];
-        strcpy(tempBuffer,tempPostText);
+        strcpy(tempBuffer, tempPostText);
 
-        delete [] tempPostText;
+        delete[] tempPostText;
         tempPostText = new char[strlen(tempBuffer) + strlen(token) + 2]; // for \0 and for the space between words
         strcpy(tempPostText, tempBuffer);
         strcat(tempPostText, " ");
         strcat(tempPostText, token);
 
     }
-    delete [] tempBuffer;
+    delete[] tempBuffer;
 
     Post tempPost;
-    tempPost.createPost(tempActor,tempType,tempPostText);
+    tempPost.createPost(tempActor, tempType, tempPostText);
 
     fPosts.createNewPost(tempPost);
 
 
-    delete [] tempPostText;
-    delete [] tempCommandLine;
-    delete [] tempActor;
-    delete [] tempPostType;
+    delete[] tempPostText;
+    delete[] tempCommandLine;
+    delete[] tempActor;
+    delete[] tempPostType;
 }
 
 void MainNetworkEngine::remove_post(const char *commandLineText)
 {
     char *tempCommandLine = new char[strlen(commandLineText) + 1];
-    strcpy(tempCommandLine,commandLineText);
+    strcpy(tempCommandLine, commandLineText);
 
     const char *tempAction = "remove_post";
     char *tempActor;
@@ -612,7 +618,7 @@ void MainNetworkEngine::remove_post(const char *commandLineText)
 
     // Actor username
     tempActor = new char[strlen(token) + 1];
-    strcpy(tempActor,token);
+    strcpy(tempActor, token);
 
     // Skip action
     token = strtok(nullptr, " ");
@@ -629,23 +635,22 @@ void MainNetworkEngine::remove_post(const char *commandLineText)
     }
     catch (...)
     {
-        delete [] tempCommandLine;
-        delete [] tempActor;
+        delete[] tempCommandLine;
+        delete[] tempActor;
 
         throw;
     }
 
 
-
-    delete [] tempCommandLine;
-    delete [] tempActor;
+    delete[] tempCommandLine;
+    delete[] tempActor;
 
 }
 
 void MainNetworkEngine::view_post(const char *commandLineText)
 {
     char *tempCommandLine = new char[strlen(commandLineText) + 1];
-    strcpy(tempCommandLine,commandLineText);
+    strcpy(tempCommandLine, commandLineText);
 
     const char *tempAction = "view_post";
     char *tempActor;
@@ -654,7 +659,7 @@ void MainNetworkEngine::view_post(const char *commandLineText)
 
     // Actor username
     tempActor = new char[strlen(token) + 1];
-    strcpy(tempActor,token);
+    strcpy(tempActor, token);
 
     // Skip action
     token = strtok(nullptr, " ");
@@ -671,16 +676,56 @@ void MainNetworkEngine::view_post(const char *commandLineText)
     }
     catch (...)
     {
-        delete [] tempCommandLine;
-        delete [] tempActor;
+        delete[] tempCommandLine;
+        delete[] tempActor;
 
         throw;
     }
 
 
+    delete[] tempCommandLine;
+    delete[] tempActor;
 
-    delete [] tempCommandLine;
-    delete [] tempActor;
+}
 
+void MainNetworkEngine::view_all_posts(const char *commandLineText)
+{
+    char *tempCommandLine = new char[strlen(commandLineText) + 1];
+    strcpy(tempCommandLine, commandLineText);
+
+    const char *tempAction = "view_post";
+    char *tempActor;
+
+    char *token = strtok(tempCommandLine, " "); // This takes the name out of a correct input
+
+    // Actor username
+    tempActor = new char[strlen(token) + 1];
+    strcpy(tempActor, token);
+
+    // Skip action
+    token = strtok(nullptr, " ");
+
+    // View post number
+    token = strtok(nullptr, " ");
+    if (token != nullptr)
+        throw std::invalid_argument("Unexpected input! \n");
+
+    UserTiers::Tier tempActorTier = fUsers.getTierFromUsername(tempActor);
+    try
+    {
+        permissionChecker(tempActorTier, tempAction);
+        fPosts.getAllPostsHtml();
+    }
+    catch (...)
+    {
+        delete[] tempCommandLine;
+        delete[] tempActor;
+
+        throw;
+    }
+
+
+    delete[] tempCommandLine;
+    delete[] tempActor;
 }
 

@@ -44,5 +44,7 @@ private:
 
     void view_post(const char *commandLineText);
 
+    void view_all_posts(const char *commandLineText);
+
     void help();
 };

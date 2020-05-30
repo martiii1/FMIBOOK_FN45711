@@ -23,6 +23,10 @@ public:
 
     void generatePostHtml(unsigned int postNumber);
 
+    void getAllPostsHtml();
+
+    void getAllPostsHtmlByUser(const char* username);
+
 
 private:
     Post *fAllPosts;
