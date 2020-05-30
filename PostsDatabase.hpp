@@ -21,6 +21,8 @@ public:
 
     void removePost(unsigned int postNumber);
 
+    void generatePostHtml(unsigned int postNumber);
+
 
 private:
     Post *fAllPosts;
@@ -34,4 +36,6 @@ private:
     void copyPostsDatabase(const PostsDatabase &other);
 
     void resizeAllPosts(unsigned int newCapacity);
+
+
 };

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "PostType.hpp"
+#include <fstream>
 
 class Post
 {
@@ -23,6 +24,8 @@ public:
 
     void displayPostText();
 
+    void writePostToFile(std::ofstream &file);
+
 private:
     char *fPostUsername;
     unsigned int fPostNumber;
@@ -37,4 +40,15 @@ private:
     void emptyPost();
 
     void setTypeFromStr(const char *type);
+
+    void htmlFileStart(std::ofstream &file);
+
+    void htmlFileEnd(std::ofstream &file);
+
+    void textPostToFile(std::ofstream &file);
+
+    void linkPostToFile(std::ofstream &file);
+
+    void imagePostToFile(std::ofstream &file);
+
 };

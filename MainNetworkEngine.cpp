@@ -74,6 +74,10 @@ void MainNetworkEngine::commandCaller(const char *commandLineText)
         {
             post(commandLineText);
         }
+        else if (strcmp(token, "view_post") == 0)
+        {
+            view_post(commandLineText);
+        }
         else
         {
             throw std::invalid_argument("Unexpected input, try again. \n");
@@ -150,6 +154,14 @@ void MainNetworkEngine::permissionChecker(UserTiers::Tier actorTier, const char 
     if (strcmp(action, "post") == 0)
     {
         if (actorTier <= UserTiers::Tier::Banned_user)
+            throw std::exception("You do not have permission to do that! \n");
+
+        return;
+    }
+
+    if (strcmp(action, "view_post") == 0)
+    {
+        if (actorTier < UserTiers::Tier::Banned_user)
             throw std::exception("You do not have permission to do that! \n");
 
         return;
@@ -614,6 +626,48 @@ void MainNetworkEngine::remove_post(const char *commandLineText)
     {
         permissionChecker(tempActorTier, tempAction);
         fPosts.removePost(tempNum);
+    }
+    catch (...)
+    {
+        delete [] tempCommandLine;
+        delete [] tempActor;
+
+        throw;
+    }
+
+
+
+    delete [] tempCommandLine;
+    delete [] tempActor;
+
+}
+
+void MainNetworkEngine::view_post(const char *commandLineText)
+{
+    char *tempCommandLine = new char[strlen(commandLineText) + 1];
+    strcpy(tempCommandLine,commandLineText);
+
+    const char *tempAction = "view_post";
+    char *tempActor;
+
+    char *token = strtok(tempCommandLine, " "); // This takes the name out of a correct input
+
+    // Actor username
+    tempActor = new char[strlen(token) + 1];
+    strcpy(tempActor,token);
+
+    // Skip action
+    token = strtok(nullptr, " ");
+
+    // View post number
+    token = strtok(nullptr, " ");
+    unsigned int tempNum = atoi(token);
+
+    UserTiers::Tier tempActorTier = fUsers.getTierFromUsername(tempActor);
+    try
+    {
+        permissionChecker(tempActorTier, tempAction);
+        fPosts.generatePostHtml(tempNum);
     }
     catch (...)
     {

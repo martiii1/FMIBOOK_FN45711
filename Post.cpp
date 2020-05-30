@@ -110,3 +110,63 @@ Post::Post(const Post &other)
 {
     copyPost(other);
 }
+
+void Post::writePostToFile(std::ofstream &file)
+{
+    htmlFileStart(file);
+
+    if(fType == PostType::Type::Text)
+    {
+        textPostToFile(file);
+    }
+    else if(fType == PostType::Type::Link)
+    {
+        linkPostToFile(file);
+    }
+    else if(fType == PostType::Type::Image)
+    {
+        imagePostToFile(file);
+    }
+
+    htmlFileEnd(file);
+}
+
+void Post::htmlFileStart(std::ofstream &file)
+{
+    file << "<!DOCTYPE html>" << std::endl;
+    file << "<html>" << std::endl;
+    file << "<body>" << std::endl;
+}
+
+void Post::htmlFileEnd(std::ofstream &file)
+{
+    file << std::endl;
+
+    file << "</body>" << std::endl;
+    file << "</html>" << std::endl;
+}
+
+void Post::textPostToFile(std::ofstream &file)
+{
+    file << "<h2>Post #" << fPostNumber << ", made by: " << fPostUsername <<". </h2>" << std::endl;
+    file << std::endl;
+
+    file << "<p>" << fPost << " </p>" << std::endl;
+}
+
+void Post::linkPostToFile(std::ofstream &file)
+{
+    file << "<h2>Post #" << fPostNumber << ", made by: " << fPostUsername <<". </h2>" << std::endl;
+    file << std::endl;
+
+    file << "<a href=\"https://" << fPost << "\">" << fPost << "</a>" << std::endl;
+
+}
+
+void Post::imagePostToFile(std::ofstream &file)
+{
+    file << "<h2>Post #" << fPostNumber << ", made by: " << fPostUsername <<". </h2>" << std::endl;
+    file << std::endl;
+
+    file << "<img src=\"" << fPost << "\">" << fPost << "</a>" << std::endl;
+}

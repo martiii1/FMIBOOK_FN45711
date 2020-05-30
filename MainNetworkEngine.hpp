@@ -42,5 +42,7 @@ private:
 
     void post(const char *commandLineText);
 
+    void view_post(const char *commandLineText);
+
     void help();
 };

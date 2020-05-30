@@ -1,5 +1,7 @@
 #include "PostsDatabase.hpp"
 #include <iostream>
+#include <fstream>
+
 
 PostsDatabase::PostsDatabase()
 {
@@ -139,4 +141,44 @@ void PostsDatabase::removePost(unsigned int postNumber)
         throw std::exception("The post wasn't found and wasn't deleted, check if you entered the correct number. \n");
     }
 
+}
+
+void PostsDatabase::generatePostHtml(unsigned int postNumber)
+{
+    char *tempBuffer = new char[10];
+    char *filename = new char[20];
+    strcpy(filename, "Post No ");
+    strcat(filename, itoa(postNumber, tempBuffer, 10));
+    strcat(filename, ".html");
+
+    std::ofstream file(filename);
+
+    if (!file.is_open())
+        throw std::exception("Unknown error has occurred! \n");
+
+    bool foundPost = false;
+    for (int i = 0; i < fSize; i++)
+    {
+        if (fAllPosts[i].getPostNumber() == postNumber)
+        {
+            foundPost = true;
+            fAllPosts[i].writePostToFile(file);
+        }
+    }
+
+    if(!foundPost)
+    {
+        file.close();
+        delete[] tempBuffer;
+        delete[] filename;
+        throw std::invalid_argument("Post not found! Try again. \n");
+    }
+
+
+    file.close();
+
+    std::cout << "Html file containing post #" << postNumber << " was created. \n";
+
+    delete[] tempBuffer;
+    delete[] filename;
 }
