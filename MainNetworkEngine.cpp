@@ -322,7 +322,7 @@ void MainNetworkEngine::start()
 {
     char *tempCommandBuffer = new char[1000];
     std::cout << "Starting... \n";
-    std::cout << "Please enter the admin username: ";
+    std::cout << "Please enter the admin username: "; // Input with age not yet fixed
     std::cin.getline(tempCommandBuffer, 1000);
     UserData tempAdmin(tempCommandBuffer, UserTiers::Tier::Admin, 20);
     fUsers.addUser(tempAdmin);

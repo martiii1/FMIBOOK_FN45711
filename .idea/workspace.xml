@@ -14,13 +14,6 @@
     <list default="true" id="5f4f5121-6fba-48b9-848d-25df4d2cdca3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainNetworkEngine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MainNetworkEngine.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MainNetworkEngine.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/MainNetworkEngine.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Post.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Post.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Post.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Post.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PostsDatabase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PostsDatabase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PostsDatabase.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/PostsDatabase.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserDatabase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/UserDatabase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserDatabase.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/UserDatabase.hpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +75,7 @@
       <workItem from="1590581712962" duration="12733000" />
       <workItem from="1590666877000" duration="9956000" />
       <workItem from="1590737600919" duration="3000" />
-      <workItem from="1590836865263" duration="7444000" />
+      <workItem from="1590836865263" duration="7683000" />
     </task>
     <task id="LOCAL-00001" summary="Basic classes added">
       <created>1589983112436</created>
@@ -364,14 +357,20 @@
       <option name="project" value="LOCAL" />
       <updated>1590847875719</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="remove_user deletes all posts made by the user">
+      <created>1590849237170</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1590849237170</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test" />
     <MESSAGE value="deleting linked user" />
     <MESSAGE value="User database class added" />
     <MESSAGE value="Added big 4" />
@@ -396,17 +395,18 @@
     <MESSAGE value="fixes in Post" />
     <MESSAGE value="added html file creator functions" />
     <MESSAGE value="added more html file creator functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="added more html file creator functions" />
+    <MESSAGE value="remove_user deletes all posts made by the user" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove_user deletes all posts made by the user" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590150953828">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590150953828" />
-    <state x="585" y="90" key="CommitChangelistDialog2" timestamp="1590847874986">
+    <state x="585" y="90" key="CommitChangelistDialog2" timestamp="1590849236357">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="90" key="CommitChangelistDialog2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590847874986" />
+    <state x="585" y="90" key="CommitChangelistDialog2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590849236357" />
     <state width="487" height="466" key="DebuggerActiveHint" timestamp="1590675161389">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -423,22 +423,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="786" y="219" key="Github.UntrackedFilesDialog/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1589981593461" />
-    <state width="1877" height="221" key="GridCell.Tab.0.bottom" timestamp="1590849097470">
+    <state width="1877" height="221" key="GridCell.Tab.0.bottom" timestamp="1590849422448">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590849097470" />
-    <state width="1877" height="221" key="GridCell.Tab.0.center" timestamp="1590849097470">
+    <state width="1877" height="221" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590849422448" />
+    <state width="1877" height="221" key="GridCell.Tab.0.center" timestamp="1590849422447">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.0.center/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590849097470" />
-    <state width="1877" height="221" key="GridCell.Tab.0.left" timestamp="1590849097470">
+    <state width="1877" height="221" key="GridCell.Tab.0.center/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590849422447" />
+    <state width="1877" height="221" key="GridCell.Tab.0.left" timestamp="1590849422447">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.0.left/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590849097470" />
-    <state width="1877" height="221" key="GridCell.Tab.0.right" timestamp="1590849097470">
+    <state width="1877" height="221" key="GridCell.Tab.0.left/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590849422447" />
+    <state width="1877" height="221" key="GridCell.Tab.0.right" timestamp="1590849422447">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.0.right/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590849097470" />
+    <state width="1877" height="221" key="GridCell.Tab.0.right/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590849422447" />
     <state width="1877" height="278" key="GridCell.Tab.1.bottom" timestamp="1590838110902">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
