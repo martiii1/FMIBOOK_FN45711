@@ -158,3 +158,20 @@ bool UserDatabase::doesUsernameExist(const char *username)
     }
     return false;
 }
+
+void UserDatabase::blockUser(const char *username)
+{
+    bool userFound = false;
+
+    for (int i = 0; i < fSize; i++)
+    {
+        if (strcmp(fAllUsers[i].getUsername(), username) == 0)
+        {
+            userFound = true;
+            fAllUsers[i].setUserTier(UserTiers::Tier::Banned_user);
+        }
+    }
+
+    if(!userFound)
+        throw std::exception("User not found! \n");
+}

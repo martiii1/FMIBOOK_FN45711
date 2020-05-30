@@ -82,6 +82,10 @@ void MainNetworkEngine::commandCaller(const char *commandLineText)
         {
             view_all_posts(commandLineText);
         }
+        else if (strcmp(token, "block") == 0)
+        {
+            block_user(commandLineText);
+        }
         else
         {
             throw std::invalid_argument("Unexpected input, try again. \n");
@@ -297,6 +301,7 @@ void MainNetworkEngine::remove_user(const char *commandLineText)
     {
         permissionChecker(tempActorTier, tempAction);
         fUsers.removeUser(tempSubject);
+        fPosts.removeAllPostsByUser(tempSubject);
     }
     catch (...)
     {
@@ -727,5 +732,67 @@ void MainNetworkEngine::view_all_posts(const char *commandLineText)
 
     delete[] tempCommandLine;
     delete[] tempActor;
+}
+
+void MainNetworkEngine::block_user(const char *commandLineText)
+{
+    char *tempCommandLine = new char[strlen(commandLineText) + 1];
+    strcpy(tempCommandLine, commandLineText);
+
+    const char *tempAction = "block_user";
+    char *tempActor;
+    char *tempSubject;
+    int tempAge = -1;
+
+    char *token = strtok(tempCommandLine, " "); // This takes the name out of a correct input
+
+    // Actor username
+    tempActor = new char[strlen(token) + 1];
+    strcpy(tempActor, token);
+
+    // Skip action
+    token = strtok(nullptr, " ");
+
+    // Username for block
+    token = strtok(nullptr, " ");
+    if (token == nullptr)
+    {
+        delete[] tempCommandLine;
+        delete[] tempActor;
+
+        throw std::invalid_argument("Unexpected input! Try again. \n");
+    }
+
+    tempSubject = new char[strlen(token) + 1];
+    strcpy(tempSubject, token);
+
+
+    UserTiers::Tier tempActorTier = fUsers.getTierFromUsername(tempActor);
+    UserTiers::Tier tempSubjectTier = fUsers.getTierFromUsername(tempSubject);
+
+    if(tempSubjectTier == UserTiers::Tier::Admin)
+        throw std::exception("The admin can not be blocked! \n");
+
+    try
+    {
+        permissionChecker(tempActorTier, tempAction);
+    }
+    catch (...)
+    {
+        delete[] tempCommandLine;
+        delete[] tempActor;
+        delete[] tempSubject;
+
+        throw;
+    }
+
+    fUsers.blockUser(tempSubject);
+
+    std::cout << tempSubject << " was blocked! \n";
+
+    delete[] tempCommandLine;
+    delete[] tempActor;
+    delete[] tempSubject;
+
 }
 

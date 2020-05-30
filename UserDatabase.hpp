@@ -27,6 +27,8 @@ public:
 
     bool doesUsernameExist(const char* username);
 
+    void blockUser(const char* username);
+
 private:
     UserData *fAllUsers;
     unsigned int fCapacity;

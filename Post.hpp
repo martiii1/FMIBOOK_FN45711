@@ -22,6 +22,8 @@ public:
 
     const char *getPostTxt();
 
+    const char *getPostUsername();
+
     void displayPostText();
 
     void writePostToFile(std::ofstream &file);

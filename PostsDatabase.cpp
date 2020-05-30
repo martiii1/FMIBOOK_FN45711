@@ -51,6 +51,9 @@ PostsDatabase::PostsDatabase(const PostsDatabase &other)
 
 void PostsDatabase::printAllPosts()
 {
+    if(fSize == 0)
+        throw std::exception("There are no post available. \n");
+
     for (int i = 0; i < fSize; i++)
     {
         std::cout << "Post #" << fAllPosts[i].getPostNumber() << ", Type: " << fAllPosts[i].getPostType()
@@ -131,7 +134,7 @@ void PostsDatabase::removePost(unsigned int postNumber)
 
     if (counterNew < counterOld)
     {
-        delete[] fAllPosts;
+        // delete[] fAllPosts; crashes the program somehow
         fAllPosts = fTempPosts;
         fSize--;
     }
@@ -207,6 +210,46 @@ void PostsDatabase::getAllPostsHtml()
 
 void PostsDatabase::getAllPostsHtmlByUser(const char *username)
 {
+
+
+}
+
+void PostsDatabase::removeAllPostsByUser(const char *username)
+{
+    Post *fTempPosts = new Post[fCapacity];
+
+    size_t counter = 0;
+    size_t counterNew = 0;
+    size_t counterOld = 0;
+
+    while (counter < fSize)
+    {
+        if (strcmp(fAllPosts[counterOld].getPostUsername(),username) == 0)
+        {
+            std::cout << fAllPosts[counterOld].getPostNumber() << " was removed. \n";
+            counterOld++;
+            counter++;
+            continue;
+        }
+
+        fTempPosts[counterNew] = fAllPosts[counterOld];
+        counterOld++;
+        counterNew++;
+        counter++;
+    }
+
+
+    if (counterNew < counterOld)
+    {
+        // delete[] fAllPosts; crashes the program somehow
+        fAllPosts = fTempPosts;
+        fSize--;
+    }
+    else
+    {
+        delete[] fTempPosts;
+        throw std::exception("The post wasn't found and wasn't deleted, check if you entered the correct number. \n");
+    }
 
 
 }

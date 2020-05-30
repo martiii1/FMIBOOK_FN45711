@@ -46,5 +46,7 @@ private:
 
     void view_all_posts(const char *commandLineText);
 
+    void block_user(const char *commandLineText);
+
     void help();
 };

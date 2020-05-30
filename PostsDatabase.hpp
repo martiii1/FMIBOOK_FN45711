@@ -21,11 +21,13 @@ public:
 
     void removePost(unsigned int postNumber);
 
+    void removeAllPostsByUser(const char *username);
+
     void generatePostHtml(unsigned int postNumber);
 
     void getAllPostsHtml();
 
-    void getAllPostsHtmlByUser(const char* username);
+    void getAllPostsHtmlByUser(const char *username);
 
 
 private:

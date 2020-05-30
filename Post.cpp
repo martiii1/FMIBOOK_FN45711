@@ -170,3 +170,8 @@ void Post::imagePostToFile(std::ofstream &file)
 
     file << "<img src=\"" << fPost << "\">" << fPost << "</a>" << std::endl;
 }
+
+const char *Post::getPostUsername()
+{
+    return fPostUsername;
+}
