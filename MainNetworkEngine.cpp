@@ -470,7 +470,7 @@ bool MainNetworkEngine::checkForExit(const char *text)
 
     char *token = strtok(tempTxt, " ");
 
-    if (strcmp(token, "Exit") == 0 || strcmp(token, "exit") == 0)
+    if (strcmp(token, "Quit") == 0 || strcmp(token, "quit") == 0)
     {
         delete[] tempTxt;
         return true;
@@ -511,7 +511,6 @@ void MainNetworkEngine::firstWordCommands(const char *commandText)
     {
         info();
     }
-
 }
 
 void MainNetworkEngine::post(const char *commandLineText)
@@ -887,4 +886,3 @@ void MainNetworkEngine::info()
     std::cout << "\n";
 
 }
-
