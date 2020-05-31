@@ -29,6 +29,8 @@ public:
 
     void getAllPostsHtmlByUser(const char *username);
 
+    int getNumberOfPostsByUsername(const char *username);
+
 
 private:
     Post *fAllPosts;

@@ -31,6 +31,14 @@ public:
 
     void changeUsername(const char* oldUsername, const char *newUsername);
 
+    void printUsernameFromNumber(unsigned int userNumber);
+
+    const char* getUsernameFromNumber(unsigned int userNumber);
+
+    void printOldestUser();
+
+    void printYoungestUser();
+
 private:
     UserData *fAllUsers;
     unsigned int fCapacity;

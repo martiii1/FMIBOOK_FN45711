@@ -172,7 +172,7 @@ void UserDatabase::blockUser(const char *username)
         }
     }
 
-    if(!userFound)
+    if (!userFound)
         throw std::exception("User not found! \n");
 }
 
@@ -190,6 +190,55 @@ void UserDatabase::changeUsername(const char *oldUsername, const char *newUserna
         }
     }
 
-    if(!userFound)
+    if (!userFound)
         throw std::exception("User not found! \n");
+}
+
+void UserDatabase::printUsernameFromNumber(unsigned int userNumber)
+{
+    if (userNumber < fSize)
+        std::cout << fAllUsers[userNumber].getUsername();
+
+}
+
+const char *UserDatabase::getUsernameFromNumber(unsigned int userNumber)
+{
+    if (userNumber < fSize)
+        return fAllUsers[userNumber].getUsername();
+    else
+        return nullptr;
+}
+
+void UserDatabase::printOldestUser()
+{
+    unsigned int oldestAge = 0;
+    char *oldestUsername = nullptr;
+
+    for (int i = 0; i < fSize; i++)
+    {
+        if( oldestAge < fAllUsers[i].getUserAge())
+        {
+            oldestAge = fAllUsers[i].getUserAge();
+            oldestUsername = fAllUsers[i].getUsername();
+        }
+    }
+
+    std::cout << oldestUsername << " " << oldestAge << " years old.";
+}
+
+void UserDatabase::printYoungestUser()
+{
+    unsigned int youngestAge = 999;
+    char *youngestUsername = nullptr;
+
+    for (int i = 0; i < fSize; i++)
+    {
+        if(youngestAge > fAllUsers[i].getUserAge())
+        {
+            youngestAge = fAllUsers[i].getUserAge();
+            youngestUsername = fAllUsers[i].getUsername();
+        }
+    }
+
+    std::cout << youngestUsername << " " << youngestAge << " years old.";
 }

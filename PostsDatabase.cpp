@@ -51,7 +51,7 @@ PostsDatabase::PostsDatabase(const PostsDatabase &other)
 
 void PostsDatabase::printAllPosts()
 {
-    if(fSize == 0)
+    if (fSize == 0)
         throw std::exception("There are no post available. \n");
 
     for (int i = 0; i < fSize; i++)
@@ -224,7 +224,7 @@ void PostsDatabase::removeAllPostsByUser(const char *username)
 
     while (counter < fSize)
     {
-        if (strcmp(fAllPosts[counterOld].getPostUsername(),username) == 0)
+        if (strcmp(fAllPosts[counterOld].getPostUsername(), username) == 0)
         {
             std::cout << fAllPosts[counterOld].getPostNumber() << " was removed. \n";
             counterOld++;
@@ -252,4 +252,16 @@ void PostsDatabase::removeAllPostsByUser(const char *username)
     }
 
 
+}
+
+int PostsDatabase::getNumberOfPostsByUsername(const char *username)
+{
+    size_t counter = 0;
+    for (int i = 0; i < fSize; i++)
+    {
+        if(strcmp(fAllPosts[i].getPostUsername(),username) == 0)
+            counter++;
+    }
+
+    return counter;
 }

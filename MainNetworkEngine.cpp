@@ -507,6 +507,10 @@ void MainNetworkEngine::firstWordCommands(const char *commandText)
     {
         help();
     }
+    else if (strcmp(commandText, "Info") == 0 || strcmp(commandText, "info") == 0)
+    {
+        info();
+    }
 
 }
 
@@ -774,7 +778,7 @@ void MainNetworkEngine::block_user(const char *commandLineText)
     UserTiers::Tier tempActorTier = fUsers.getTierFromUsername(tempActor);
     UserTiers::Tier tempSubjectTier = fUsers.getTierFromUsername(tempSubject);
 
-    if(tempSubjectTier == UserTiers::Tier::Admin)
+    if (tempSubjectTier == UserTiers::Tier::Admin)
         throw std::exception("The admin can not be blocked! \n");
 
     try
@@ -850,14 +854,37 @@ void MainNetworkEngine::rename_user(const char *commandLineText)
         throw;
     }
 
-    fUsers.changeUsername(tempActor,tempSubject);
+    fUsers.changeUsername(tempActor, tempSubject);
 
-    std::cout << tempActor << " was renamed to: " << tempSubject << std::endl;
+    std::cout << tempActor << " was renamed to: " << tempSubject << "\n";
 
     delete[] tempCommandLine;
     delete[] tempActor;
     delete[] tempSubject;
+}
 
+void MainNetworkEngine::info()
+{
+    unsigned int numberOfUsers = fUsers.getSize();
+
+    std::cout << "There are " << numberOfUsers << " users. \n";
+    std::cout << "Users: \n";
+
+    for (int i = 0; i < numberOfUsers; i++)
+    {
+        fUsers.printUsernameFromNumber(i);
+        std::cout << ", number of posts: ";
+        std::cout << fPosts.getNumberOfPostsByUsername(fUsers.getUsernameFromNumber(i));
+        std::cout <<" posts. "<< "\n";
+    }
+
+
+    std::cout << "Oldest user: ";
+    fUsers.printOldestUser();
+    std::cout << "\n";
+    std::cout << "Youngest user: ";
+    fUsers.printYoungestUser();
+    std::cout << "\n";
 
 }
 

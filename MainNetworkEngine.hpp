@@ -50,5 +50,7 @@ private:
 
     void rename_user(const char *commandLineText);
 
+    void info();
+
     void help();
 };
