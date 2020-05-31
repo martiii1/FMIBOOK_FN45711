@@ -499,6 +499,9 @@ void MainNetworkEngine::help()
     std::cout
             << "[name1] remove_user [name2] - Removes the user with username [name2] and deletes all posts made by the user, \n";
     std::cout << "to remove a user [name1] has to be the Admin.\n \n";
+
+
+    std::cout << "Type \"info\" for general information about the users. \n";
 }
 
 void MainNetworkEngine::firstWordCommands(const char *commandText)
