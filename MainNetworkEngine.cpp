@@ -710,6 +710,7 @@ void MainNetworkEngine::view_all_posts(const char *commandLineText)
 
     const char *tempAction = "view_post";
     char *tempActor;
+    char *tempSubject;
 
     char *token = strtok(tempCommandLine, " "); // This takes the name out of a correct input
 
@@ -720,26 +721,46 @@ void MainNetworkEngine::view_all_posts(const char *commandLineText)
     // Skip action
     token = strtok(nullptr, " ");
 
-    // View post number
+    // Possible name
     token = strtok(nullptr, " ");
     if (token != nullptr)
-        throw std::invalid_argument("Unexpected input! \n");
-
-    UserTiers::Tier tempActorTier = fUsers.getTierFromUsername(tempActor);
-    try
     {
-        permissionChecker(tempActorTier, tempAction);
-        fPosts.getAllPostsHtml();
+        tempSubject = new char[strlen(token) + 1];
+        strcpy(tempSubject, token);
+
+        UserTiers::Tier tempActorTier = fUsers.getTierFromUsername(tempActor);
+        try
+        {
+            permissionChecker(tempActorTier, tempAction);
+            fPosts.getAllPostsHtmlByUser(tempSubject);
+        }
+        catch (...)
+        {
+            delete[] tempCommandLine;
+            delete[] tempActor;
+            delete[] tempSubject;
+
+            throw;
+        }
     }
-    catch (...)
+    else
     {
-        delete[] tempCommandLine;
-        delete[] tempActor;
+        UserTiers::Tier tempActorTier = fUsers.getTierFromUsername(tempActor);
+        try
+        {
+            permissionChecker(tempActorTier, tempAction);
+            fPosts.getAllPostsHtml();
+        }
+        catch (...)
+        {
+            delete[] tempCommandLine;
+            delete[] tempActor;
+            delete[] tempSubject;
 
-        throw;
+            throw;
+        }
+
     }
-
-
     delete[] tempCommandLine;
     delete[] tempActor;
 }
@@ -877,7 +898,7 @@ void MainNetworkEngine::info()
         fUsers.printUsernameFromNumber(i);
         std::cout << ", number of posts: ";
         std::cout << fPosts.getNumberOfPostsByUsername(fUsers.getUsernameFromNumber(i));
-        std::cout <<" posts. "<< "\n";
+        std::cout << " posts. " << "\n";
     }
 
 

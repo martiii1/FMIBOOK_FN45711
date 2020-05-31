@@ -210,7 +210,33 @@ void PostsDatabase::getAllPostsHtml()
 
 void PostsDatabase::getAllPostsHtmlByUser(const char *username)
 {
+    char *filename = new char[255];
+    strcpy(filename, "AllPostsBy");
+    strcat(filename, username);
+    strcat(filename, ".html");
 
+    std::ofstream file(filename);
+
+    for (int i = 0; i < fSize; i++)
+    {
+        if (!file.is_open())
+        {
+            delete[] filename;
+            throw std::exception("Unknown error has occurred! \n");
+        }
+
+        if (strcmp(fAllPosts[i].getPostUsername(), username) == 0)
+        {
+            fAllPosts[i].writePostToFile(file);
+            file << std::endl << std::endl;
+        }
+
+    }
+
+    file.close();
+    delete[] filename;
+
+    std::cout << "Html file containing all posts made by  " << username << "\n";
 
 }
 
@@ -259,7 +285,7 @@ int PostsDatabase::getNumberOfPostsByUsername(const char *username)
     size_t counter = 0;
     for (int i = 0; i < fSize; i++)
     {
-        if(strcmp(fAllPosts[i].getPostUsername(),username) == 0)
+        if (strcmp(fAllPosts[i].getPostUsername(), username) == 0)
             counter++;
     }
 
