@@ -13,7 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5f4f5121-6fba-48b9-848d-25df4d2cdca3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MainNetworkEngine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MainNetworkEngine.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +76,7 @@
       <workItem from="1590666877000" duration="9956000" />
       <workItem from="1590737600919" duration="3000" />
       <workItem from="1590836865263" duration="8184000" />
-      <workItem from="1590933472274" duration="1793000" />
+      <workItem from="1590933472274" duration="1866000" />
     </task>
     <task id="LOCAL-00001" summary="Basic classes added">
       <created>1589983112436</created>
@@ -400,14 +400,20 @@
       <option name="project" value="LOCAL" />
       <updated>1590935127543</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="info added to help cout">
+      <created>1590935285477</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1590935285477</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="new class" />
     <MESSAGE value="reformatting" />
     <MESSAGE value="added more functionality&#10;first test" />
     <MESSAGE value="fixed wrong parameter in add_user function" />
@@ -432,17 +438,18 @@
     <MESSAGE value="change username added" />
     <MESSAGE value="Added info function" />
     <MESSAGE value="Added quit as an exit word" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added quit as an exit word" />
+    <MESSAGE value="info added to help cout" />
+    <option name="LAST_COMMIT_MESSAGE" value="info added to help cout" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590150953828">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590150953828" />
-    <state x="585" y="90" key="CommitChangelistDialog2" timestamp="1590935126909">
+    <state x="585" y="90" key="CommitChangelistDialog2" timestamp="1590935284892">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="90" key="CommitChangelistDialog2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590935126909" />
+    <state x="585" y="90" key="CommitChangelistDialog2/0.0.1920.1040/-1280.0.1280.984@0.0.1920.1040" timestamp="1590935284892" />
     <state width="487" height="466" key="DebuggerActiveHint" timestamp="1590675161389">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
